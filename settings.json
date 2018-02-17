@@ -1,0 +1,90 @@
+{
+    // 【Salesforceの設定】
+    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
+
+    // 【gitの設定】
+    // gitlensカスタマイズ
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "gitlens.codeLens.enabled": false,
+    // "gitlens.blame.line.enabled": false,
+
+    // 【見た目の変更】
+    // 画面の拡大
+    "window.zoomLevel": 1,
+    // ルーラー
+    "editor.rulers": [
+        80,
+        120,
+        160,
+        200
+    ],
+    // テーマ
+    "workbench.colorTheme": "Solarized Light",
+    // ミニマップ軽量化
+    "editor.minimap.renderCharacters": false,
+    // 表示位置をミニマップでハイライトする
+    "editor.minimap.showSlider": "always",
+    // ミニマップ表示位置
+    "editor.minimap.side": "left",
+    // 入力候補の設定
+    "editor.wordBasedSuggestions": false,
+    // 入力候補の表示
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+        },
+    // 空白文字の表示
+    "editor.renderWhitespace": "all",
+
+    // 【ファイル設定】
+    // 末尾の空行を削除
+    "files.trimFinalNewlines": true,
+    // 末尾の空白を削除
+    "files.trimTrailingWhitespace": true,
+    // 文字コード
+    "files.encoding": "utf8",
+    // 改行コード
+    // "files.eol": "\r\n"
+    // "files.eol": "\n"
+    // インデント
+    // "editor.detectIndentation": false,
+    // "editor.insertSpaces": false,
+    // "editor.tabSize": 4,
+
+    // 【言語別設定】
+    // Preferences: Configure language specific settings
+    "[apex]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4,
+    },
+    "[javascript]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "[css]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    // Visualforce、component、applicationを含む
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "files.autoSave": "afterDelay",
+
+}
