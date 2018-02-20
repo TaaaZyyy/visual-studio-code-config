@@ -1,7 +1,5 @@
 {
-    // 【Salesforceの設定】
-    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
-
+    // ★パブリック
     // 【gitの設定】
     // gitlensカスタマイズ
     "gitlens.advanced.messages": {
@@ -79,12 +77,31 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
     },
-    // Visualforce、component、applicationを含む
+    // component、applicationを含む
     "[html]": {
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
     },
+    "[visualforce]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "[json]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+
+
+
+
+    // ★ローカル
+    // 【Salesforceの設定】
+    // JDKの場所
+    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
+    // 自動保存
     "files.autoSave": "afterDelay",
 
 }

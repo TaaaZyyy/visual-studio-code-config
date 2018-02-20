@@ -1,0 +1,28 @@
+{
+  "sldx init": {
+    "prefix": "sldsinit",
+    "body": [
+      "<apex:page showHeader=\"false\" standardStylesheets=\"false\" sidebar=\"false\" applyHtmlTag=\"false\" applyBodyTag=\"false\" docType=\"html-5.0\">",
+      "<html xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">",
+      "<head>",
+      "  <meta charset=\"utf-8\" />",
+      "  <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\" />",
+      "  <title>${1:title}</title>",
+      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
+      "  <apex:slds />",
+      "</head>",
+      "<body>",
+      "  <!-- REQUIRED SLDS WRAPPER -->",
+      "  <div class=\"slds-scope\">",
+      "",
+      "    ${2:body}",
+      "",
+      "  </div>",
+      "  <!-- / REQUIRED SLDS WRAPPER -->",
+      "</body>",
+      "</html>",
+      "</apex:page>"
+    ],
+    "description": "create slds visualforce page template"
+	}
+}
