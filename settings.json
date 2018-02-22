@@ -26,8 +26,7 @@
         160,
         200
     ],
-    // テーマ
-    "workbench.colorTheme": "Solarized Light",
+
     // ミニマップ軽量化
     "editor.minimap.renderCharacters": false,
     // 表示位置をミニマップでハイライトする
@@ -82,6 +81,9 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
+        // 行の折り返し
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 80,
     },
     "[visualforce]": {
         "editor.detectIndentation": false,
@@ -103,5 +105,7 @@
     "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
     // 自動保存
     "files.autoSave": "afterDelay",
+    // テーマ
+    "workbench.colorTheme": "Solarized Light",
 
 }
