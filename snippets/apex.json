@@ -1,0 +1,9 @@
+{
+  "debug": {
+    "prefix": "sysout",
+    "body": [
+      "System.debug( LoggingLevel.DEBUG, $1 );"
+    ],
+    "description": "debug"
+  },
+}
