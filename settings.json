@@ -99,7 +99,10 @@
 
 
     // ★ローカル
+    // 【Salesforceの設定】
+    // JDKの場所
     "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jre1.8.0_73",
+    // 自動保存
     "files.autoSave": "afterDelay",
     "editor.renderControlCharacters": true,
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -114,5 +117,4 @@
         // "editor.insertSpaces": true,
         // "editor.tabSize": 2,
     },
-
 }
