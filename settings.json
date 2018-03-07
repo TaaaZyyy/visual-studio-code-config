@@ -26,21 +26,25 @@
         160,
         200
     ],
-
     // ミニマップ軽量化
     "editor.minimap.renderCharacters": false,
     // 表示位置をミニマップでハイライトする
     "editor.minimap.showSlider": "always",
     // ミニマップ表示位置
     "editor.minimap.side": "left",
+
+    // 【入力補助】
     // 入力候補の設定
     "editor.wordBasedSuggestions": false,
-    // 入力候補の表示
+    // 入力候補の表示 falseにしても ctrl + space で表示可能。
     "editor.quickSuggestions": {
         "other": false,
         "comments": false,
         "strings": false
-        },
+    },
+    "editor.snippetSuggestions": "top",
+    // スニペット有効化
+    "editor.tabCompletion": true,
     // 空白文字の表示
     "editor.renderWhitespace": "all",
 
@@ -83,12 +87,7 @@
         "editor.tabSize": 2,
         // 行の折り返し
         "editor.wordWrap": "bounded",
-        "editor.wordWrapColumn": 80,
-    },
-    "[visualforce]": {
-        "editor.detectIndentation": false,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
+        "editor.wordWrapColumn": 120,
     },
     "[json]": {
         "editor.detectIndentation": false,
@@ -100,12 +99,20 @@
 
 
     // ★ローカル
-    // 【Salesforceの設定】
-    // JDKの場所
-    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
-    // 自動保存
+    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jre1.8.0_73",
     "files.autoSave": "afterDelay",
+    "editor.renderControlCharacters": true,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, メイリオ",
     // テーマ
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Default Light+",
+    // "workbench.colorTheme": "Solarized Light",
+
+    "[visualforce]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+        // "editor.insertSpaces": true,
+        // "editor.tabSize": 2,
+    },
 
 }
