@@ -1,6 +1,21 @@
 {
-	// lightning component
-  "debug": {
+  "html init": {
+    "prefix": "init",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"ja\">",
+      "<head>",
+      "  <meta charset=\"utf-8\">",
+      "  <title>${1:title}</title>",
+      "</head>",
+      "<body>",
+      "</body>",
+      "</html>",
+    ],
+    "description": "create html template"
+  },
+  // lightning component
+  "lightning attribute": {
     "prefix": "att",
     "body": [
       "<aura:attribute name=\"$1\" type=\"$2\"/>"
