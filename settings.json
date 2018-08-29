@@ -1,20 +1,5 @@
 {
     // ★パブリック
-    // 【gitの設定】
-    // gitlensカスタマイズ
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": true,
-        "suppressUpdateNotice": false,
-        "suppressWelcomeNotice": true
-    },
-    "gitlens.codeLens.enabled": false,
-    // "gitlens.blame.line.enabled": false,
 
     // 【見た目の変更】
     // 画面の拡大
@@ -26,6 +11,7 @@
         160,
         200
     ],
+    "editor.minimap.enabled":true,
     // ミニマップ軽量化
     "editor.minimap.renderCharacters": false,
     // 表示位置をミニマップでハイライトする
@@ -63,12 +49,22 @@
     // "editor.insertSpaces": false,
     // "editor.tabSize": 4,
 
+    // 【Emmet】
+    // https://technical-creator.com/vscode-emmet/
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.variables": {"lang" : "ja"},
+
     // 【言語別設定】
     // Preferences: Configure language specific settings
     "[apex]": {
         "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
-        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "[visualforce]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
     },
     "[javascript]": {
         "editor.detectIndentation": false,
@@ -110,11 +106,4 @@
     // テーマ
     "workbench.colorTheme": "Default Light+",
     // "workbench.colorTheme": "Solarized Light",
-
-    "[visualforce]": {
-        "editor.detectIndentation": false,
-        "editor.insertSpaces": false,
-        // "editor.insertSpaces": true,
-        // "editor.tabSize": 2,
-    },
 }
