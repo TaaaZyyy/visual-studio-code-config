@@ -1,0 +1,13 @@
+{
+  "css init": {
+    "prefix": "init",
+    "body": [
+      "@charset \"utf-8\";",
+      "",
+      "body {",
+      "  font-family: \"Hiragino Kaku Gothic ProN\",\"メイリオ\",sans-serif;",
+      "}",
+    ],
+    "description": "create css init"
+  },
+}
