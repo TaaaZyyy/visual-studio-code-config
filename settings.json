@@ -1,5 +1,11 @@
 {
     // ★パブリック
+    
+    // 【ユーティリティ】
+    // 初期ファイルのドキュメントタイプ
+    "files.defaultLanguage": "markdown",
+    // 自動保存
+    "files.autoSave": "afterDelay",
 
     // 【見た目の変更】
     // テーマ
@@ -109,13 +115,8 @@
     },
 
 
-
     // git
     "git.enableSmartCommit": true,
-
-
-    // 自動保存
-    "files.autoSave": "afterDelay",
 
 
     // ★ローカル
