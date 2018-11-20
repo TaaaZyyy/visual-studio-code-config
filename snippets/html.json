@@ -16,6 +16,8 @@
     ],
     "description": "create html template"
   },
+
+
   // lightning component
   "lightning attribute": {
     "prefix": "att",
@@ -24,6 +26,39 @@
     ],
     "description": "lightning component attribute"
   },
+
+
+  "aura:registerEvent": {
+    "prefix": "event",
+    "body": [
+      "<aura:registerEvent name=\"$1\" type=\"${2:EventName}\"/>"
+    ],
+    "description": "lightning component register custom event"
+  },
+
+
+  "aura:handlerEvent": {
+    "prefix": "handler",
+    "body": [
+      "<aura:handler",
+      "    name=\"${1:eventName}\"",
+      "    event=\"c:${2:EvenComponent}\"",
+      "    action=\"{!c.${3:method}}\"/>",
+    ],
+    "description": "lightning component handler custom event"
+  },
+
+
+  "aura:handlerInitEvent": {
+    "prefix": "handlerinit",
+    "body": [
+      "<aura:handler name=\"init\" event=\"{!this}\" action=\"{!c.${3:doInit}}\"/>",
+    ],
+    "description": "lightning component handler init event"
+  },
+
+
+
   // bootstrap4
   "html init with bootstrap4": {
     "prefix": "bootstrap",
