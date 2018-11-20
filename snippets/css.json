@@ -1,3 +1,4 @@
+
 {
   "css init": {
     "prefix": "init",
@@ -10,4 +11,24 @@
     ],
     "description": "create css init"
   },
+
+
+  "lightning spiner": {
+    "prefix": "spiner",
+    "body": [
+      ".THIS.position_relative {",
+        "  position: relative;",
+        "}",
+        ".THIS .position_relative {",
+        "  position: relative;",
+        "}",
+        ".THIS.slds-spinner_container {",
+        "  z-index: 95;",
+        "}",
+        ".THIS .slds-spinner_container {",
+        "  z-index: 95;",
+        "}",
+    ],
+    "description": "lightning spinner の表示範囲を限定する(.cmp側でも修正必要)"
+  }
 }
