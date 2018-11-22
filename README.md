@@ -4,6 +4,8 @@
     - コードブロックをわかりやすくする
 - Japanese Language Pack for Visual Studio Code
     - 日本語化
+- Image Preview
+    - 画像のパスにマウスオーバーするとツールチップで画像を表示
 ## Git
 - GitLens — Git supercharged
     - 行ごとに最終更新者が見れる
