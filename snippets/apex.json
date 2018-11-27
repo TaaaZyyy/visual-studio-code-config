@@ -6,7 +6,7 @@
     ],
     "description": "debug"
   },
-  
+
   "addMessage": {
     "prefix": "addmsg",
     "body": [
@@ -23,7 +23,7 @@
       "    private static final User TEST_ADMIN_USER = new User(Id = UserInfo.getUserId()); // テスト実行ユーザ",
       "",
       "    @testSetup static void methodName() {",
-      "        System.runAs( TEST_ADMIN_USER ) {",
+      "        System.runAs(TEST_ADMIN_USER) {",
       "            // テストレコード作成",
       "        }",
       "    }",
@@ -54,6 +54,7 @@
       "        try {",
       "            // 実行を記述",
       "            Calculator.divide(3, 0);",
+      "            System.assert(false)",
       "        } catch (MathException e) {",
       "            // 検証を記述",
       "            System.assertEquals('divide by zero.',e.getMessage(),'MathException発生テスト');",
@@ -71,16 +72,17 @@
       "        try {",
       "            // 実行を記述",
       "            TenantUser__c tenantUser2 = ZT_000_CommonTest.generateLoginUser(account);",
+      "            System.assert(false)",
       "        } catch(Exception e) {",
       "            // 検証を記述",
-      "                System.assert(e.getMessage().contains('管理者ユーザの発行数上限に達したため、追加出来ません。'));",
+      "            System.assert(e.getMessage().contains('管理者ユーザの発行数上限に達したため、追加出来ません。'));",
       "        }",
       "    }",
       "}",
     ],
     "description": "init_testclass"
   },
-  
+
     "trriger_init": {
     "prefix": "trigger",
     "body": [
