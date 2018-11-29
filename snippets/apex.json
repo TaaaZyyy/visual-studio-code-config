@@ -83,8 +83,8 @@
     "description": "init_testclass"
   },
 
-    "trriger_init": {
-    "prefix": "trigger",
+  "trriger_init": {
+    "prefix": ["trinit","triginit","triggerinit"],
     "body": [
       "trigger ${1:TriggerName} on ${2:SObject} (",
       "        before insert,",
@@ -109,7 +109,7 @@
   },
 
   "trriger-handler_init": {
-    "prefix": "triggerhandler",
+    "prefix": ["handinit","handler","handlerinit"],
     "body": [
       "public with sharing class ${1:TriggerHandlerName} {",
       "",
