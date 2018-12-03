@@ -22,7 +22,7 @@
       "    console.log`error: ${JSON.stringify(response.getError())}`;",
       "  }",
       "});",
-      "$A.enqueueAction(action);",
+      "$$A.enqueueAction(action);",
     ],
     "description": "lightning component apex action"
   },
@@ -46,7 +46,7 @@
     "description": "lightning component toastEvent"
   },
 
-  
+
   "sf-action_error-toast_message": {
     "prefix": ["error","errmsg","errormessage"],
     "body": [
