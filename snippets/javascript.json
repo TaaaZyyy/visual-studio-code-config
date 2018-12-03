@@ -5,6 +5,7 @@
     "description": "console.log obj->JSON"
   },
 
+
   "sf-apexcontroller-action": {
     "prefix": ["action","apex"],
     "body": [
@@ -26,6 +27,40 @@
     "description": "lightning component apex action"
   },
 
+
+  "sf-toast_message": {
+    "prefix": "msg",
+    "body": [
+      "dispMsg : function(message, type, data) {",
+      "  if (!message) { return; }",
+      "  let toastEvent = $A.get(\"e.force:showToast\");",
+      "  toastEvent.setParams({",
+      "    \"message\": message,",
+      "    \"messageTemplate\": message,  //'Record {0} created! See it {1}!',",
+      "    \"messageTemplateData\": data, // ['Salesforce', {url: 'http://www.salesforce.com/',label: 'here',}],",
+      "    \"type\": type,                // 'success'",
+      "  });",
+      "  toastEvent.fire();",
+      "},",
+    ],
+    "description": "lightning component toastEvent"
+  },
+
+  
+  "sf-action_error-toast_message": {
+    "prefix": ["error","errmsg","errormessage"],
+    "body": [
+      "handleActionError : function(response) {",
+      "  let errors = response.getError();",
+      "  let msg = (errors[0].message !== void 0) ? errors[0].message : errors[0].pageErrors[0].message;",
+      "  console.log`error: ${JSON.stringify(errors)}`;",
+      "  this.dispErrorMsg(`エラーが発生しました : ${msg}`);",
+      "},",
+    ],
+    "description": "lightning component action error toastEvent"
+  },
+
+
   "sf-componentcontroller-function": {
     "prefix": "func",
     "body": [
@@ -33,6 +68,7 @@
     ],
     "description": "sf-component controller create function"
   },
+
 
   "query": {
     "prefix": "query",
