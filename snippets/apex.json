@@ -15,6 +15,28 @@
     "description": "add message to VF"
   },
 
+  "lightning-component_ResultClass": {
+    "prefix": "result",
+    "body": [
+      "public with sharing class ActionResult {",
+      "  public Boolean isSuccess {get; private set;}",
+      "  public String  message   {get; private set;}",
+      "  public Object  value     {get; private set;}",
+      "",
+      "  ActionResult(Boolean pIsSuccess, String pMessage, Object pValue) {",
+      "      this.isSuccess = pIsSuccess;",
+      "      this.message   = pMessage;",
+      "      this.value     = pValue;",
+      "  }",
+      "",
+      "  public String getJson() {",
+      "      return JSON.serialize(this);",
+      "  }",
+      "}",
+    ],
+    "description": "lightning-component resultclass"
+  },
+
   "savePoint": {
     "prefix": ["sp","savepoint","save"],
     "body": [
