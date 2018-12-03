@@ -1,0 +1,54 @@
+{
+  "console.log": {
+    "prefix": "sysout",
+    "body": ["console.log(JSON.stringify($1));$2"],
+    "description": "console.log obj->JSON"
+  },
+
+  "sf-apexcontroller-action": {
+    "prefix": ["action","apex"],
+    "body": [
+      "let action = component.get(\"c.${1:ApexMethodName}\");",
+      "action.setParams({",
+      "  \"${1:ApexMethodParameter}\": contId,",
+      "});",
+      "",
+      "action.setCallback(this, function(response) {",
+      "  let state = response.getState();",
+      "  if (state === \"SUCCESS\") {",
+      "",
+      "  } else if (state === \"ERROR\") {",
+      "    console.log`error: ${JSON.stringify(response.getError())}`;",
+      "  }",
+      "});",
+      "$A.enqueueAction(action);",
+    ],
+    "description": "lightning component apex action"
+  },
+
+  "sf-componentcontroller-function": {
+    "prefix": "func",
+    "body": [
+      "function(component, event, helper) {$1},"
+    ],
+    "description": "sf-component controller create function"
+  },
+
+  "query": {
+    "prefix": "query",
+    "body": [
+      "let action = component.get(\"c.${1:method}\");",
+      "action.setParams({${2:apexParameter})",
+      "",
+      "action.setCallback(this, function(response) {",
+      "  let state = response.getState();",
+      "  if (state === \"SUCCESS\") {",
+      "    component.set(\"v.${3:attribute}\", response.getReturnValue());",
+      "  }",
+      "});",
+      "",
+      "$$A.enqueueAction(action);",
+    ],
+    "description": "sf-component controller query"
+  },
+}
