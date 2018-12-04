@@ -1,6 +1,13 @@
 {
   "console.log": {
     "prefix": "sysout",
+    "body": ["console.log($1);$2"],
+    "description": "console.log"
+  },
+
+
+  "console.log_JSON": {
+    "prefix": "sysoutj",
     "body": ["console.log(JSON.stringify($1));$2"],
     "description": "console.log obj->JSON"
   },
@@ -48,13 +55,22 @@
 
 
   "sf-action_error-toast_message": {
-    "prefix": ["error","errmsg","errormessage"],
+    "prefix": ["err","error","errmsg","errormessage"],
     "body": [
       "handleActionError : function(response) {",
       "  let errors = response.getError();",
-      "  let msg = (errors[0].message !== void 0) ? errors[0].message : errors[0].pageErrors[0].message;",
       "  console.log`error: ${JSON.stringify(errors)}`;",
-      "  this.dispErrorMsg(`エラーが発生しました : ${msg}`);",
+      "  ;",
+      "  let msg   = '';",
+      "  if (errors[0].message !== void 0) {",
+      "    msg = errors[0].message;",
+      "  } else if ((errors[0].pageErrors[0] !== void 0) && (errors[0].pageErrors[0].message !== void 0)) {",
+      "    msg = errors[0].pageErrors[0].message;",
+      "  } else if ((errors[0].fieldErrors !== void 0) && (errors[0].fieldErrors.Name[0] !== void 0) && (errors[0].fieldErrors.Name[0].message !== void 0)) {",
+      "    msg = errors[0].fieldErrors.Name[0].message;",
+      "  }",
+      "  ;",
+      "  this.dispMsg(`エラーが発生しました : ${msg}`, \"error\");",
       "},",
     ],
     "description": "lightning component action error toastEvent"
