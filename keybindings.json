@@ -1,0 +1,24 @@
+[
+    // 行の始めにカーソル移動(HHKB使用時)
+    {
+        "key": "ctrl+oem_1",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "home",
+        "command": "-cursorHome",
+        "when": "textInputFocus"
+    },
+    // 行の終わりにカーソル移動(HHKB使用時)
+    {
+        "key": "ctrl+oem_7",
+        "command": "cursorEnd",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "end",
+        "command": "-cursorEnd",
+        "when": "textInputFocus"
+    }
+]
