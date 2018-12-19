@@ -42,6 +42,7 @@
         "comments": false,
         "strings": false
     },
+    // ユーザスニペットを候補のトップに表示
     "editor.snippetSuggestions": "top",
     // スニペット有効化
     "editor.tabCompletion": true,
@@ -58,8 +59,8 @@
     // 文字コード
     "files.encoding": "utf8",
     // 改行コード
-    // "files.eol": "\r\n"
-    // "files.eol": "\n"
+    // "files.eol": "\r\n",
+    // "files.eol": "\n",
     // インデント
     // "editor.detectIndentation": false,
     // "editor.insertSpaces": false,
