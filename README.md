@@ -6,6 +6,8 @@
     - 日本語化
 - Image Preview
     - 画像のパスにマウスオーバーするとツールチップで画像を表示
+- Insert Numbers
+    - マルチカーソルに連番挿入
 ## Git
 - GitLens — Git supercharged
     - 行ごとに最終更新者が見れる
