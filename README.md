@@ -28,3 +28,5 @@
 - Settings Sync
     - 複数のPCで設定を共有
     - 一部PCごとに設定を変えているので使用していない
+- https://visualstudio.microsoft.com/ja/services/live-share/?rr=https%3A%2F%2Fdev.to%2Fteamxenox%2Fpro-tips-for-visual-studio-code-to-be-productive-in-2018--1jek%3Futm_source%3Ddigest_mailer%26utm_medium%3Demail%26utm_campaign%3Ddigest_email
+    - ソースコードレビュー、ペアプロに
