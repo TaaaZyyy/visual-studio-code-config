@@ -45,7 +45,7 @@
     // ユーザスニペットを候補のトップに表示
     "editor.snippetSuggestions": "top",
     // スニペット有効化
-    "editor.tabCompletion": ,
+    "editor.tabCompletion": "on",
     // 空白文字の表示
     "editor.renderWhitespace": "all",
 
