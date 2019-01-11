@@ -2,7 +2,7 @@
   "debug": {
     "prefix": "sysout",
     "body": [
-      "System.debug( LoggingLevel.DEBUG, $1 );"
+      "System.debug(LoggingLevel.DEBUG, $1);"
     ],
     "description": "debug"
   },
@@ -10,7 +10,7 @@
   "addMessage": {
     "prefix": "addmsg",
     "body": [
-      "ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.${1:CONFIRM,ERROR,FATAL,INFO,WARNING},${2:'msg'} ,${3:'detail'}));"
+      "ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1:CONFIRM,ERROR,FATAL,INFO,WARNING},${2:'msg'} ,${3:'detail'}));"
     ],
     "description": "add message to VF"
   },
@@ -119,9 +119,9 @@
   },
 
   "trriger_init": {
-    "prefix": ["trinit","triginit","triggerinit"],
+    "prefix": ["trinit","triginit","triggerinit","trigger"],
     "body": [
-      "trigger ${1:TriggerName} on ${2:SObject} (",
+      "trigger ${1:TriggerName} on ${2:SObjectName} (",
       "        before insert,",
       "        after  insert,",
       "        before update,",
