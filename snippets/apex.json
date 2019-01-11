@@ -121,6 +121,9 @@
   "trriger_init": {
     "prefix": ["trinit","triginit","triggerinit","trigger"],
     "body": [
+      "/**",
+      "* ${1:SObjectLabelNameトリガ}",
+      "*/",
       "trigger ${1:TriggerName} on ${2:SObjectName} (",
       "        before insert,",
       "        after  insert,",
