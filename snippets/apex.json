@@ -130,6 +130,7 @@
       "        before update,",
       "        after  update,",
       "        before delete,",
+      "        after  delete,",
       "        after  undelete ) {",
       "",
       "    ${3:TriggerHandler} handler = new ${4:TriggerHandler}( Trigger.isExecuting, Trigger.size );",
