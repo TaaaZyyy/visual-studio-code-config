@@ -114,6 +114,10 @@
     "[python]": {
         "files.trimTrailingWhitespace": false,
     },
+    "[go]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+    },
 
 
     // git
