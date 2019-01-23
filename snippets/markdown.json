@@ -114,4 +114,14 @@
     ],
     "description": "3 row table"
   },
+
+  "code_ruby": {
+    "prefix": "rb",
+    "body":[
+      "```ruby",
+      "$1",
+      "```",
+    ],
+    "description": "code_ruby"
+  },
 }
