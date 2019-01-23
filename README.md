@@ -1,5 +1,12 @@
-# 拡張機能
-## 汎用
+## シンボリックリンクの作成
+```bash
+# win
+cmd
+mklink /d "C:\Users\ユーザ名\AppData\Roaming\Code\User\snippets"  "D:\プロジェクトフォルダのパス\visual-studio-code-config\snippets"
+```
+
+## 拡張機能
+### 汎用
 - Bracket Pair Colorizer 2
     - コードブロックをわかりやすくする
 - Japanese Language Pack for Visual Studio Code
@@ -8,19 +15,19 @@
     - 画像のパスにマウスオーバーするとツールチップで画像を表示
 - Insert Numbers
     - マルチカーソルに連番挿入
-## Git
+### Git
 - GitLens — Git supercharged
     - 高性能なGUI。行ごとに最終更新者が見れる。コミット間の差分が見やすい。
-## HTML
+### HTML
 - Auto Rename Tag
     - 開始タグを変更すると同時に終了タグも変更される
-## PDF
+### PDF
 - [Markdown PDF - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf)
     - markdownをPDFに変換できる
 - [vscode-pdf - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)
 
 
-## 未使用だが使い勝手の良さそうなもの
+### 未使用だが使い勝手の良さそうなもの
 - Prettier - Code formatter
     - コードフォーマッター
 - Quokka.js
