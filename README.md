@@ -5,6 +5,11 @@ cmd
 mklink /d "C:\Users\ユーザ名\AppData\Roaming\Code\User\snippets"  "D:\プロジェクトフォルダのパス\visual-studio-code-config\snippets"
 ```
 
+```bash
+# mac
+ ln -s /プロジェクトフォルダのパス/visual-studio-code-config/snippets /Users/ユーザ名/Library/Application\ Support/Code/User
+```
+
 ## 拡張機能
 ### 汎用
 - Bracket Pair Colorizer 2
