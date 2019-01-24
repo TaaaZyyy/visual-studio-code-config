@@ -50,7 +50,7 @@
 
 
   "aura:handlerInitEvent": {
-    "prefix": "handlerinit",
+    "prefix": ["handinit","handlerinit"],
     "body": [
       "<aura:handler name=\"init\" event=\"{!this}\" action=\"{!c.${3:doInit}}\"/>",
     ],

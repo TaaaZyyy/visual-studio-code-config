@@ -258,7 +258,7 @@
       "",
       "",
       "  /** コンストラクタ */",
-      "  global BatchName(){",
+      "  global BatchName() {",
       "      this.targetDate = Date.today();",
       "  }",
       "",
@@ -304,5 +304,13 @@
       "}",
     ],
     "description": "batch init"
+  },
+
+  "executebatch": {
+    "prefix": "executebatch",
+    "body": [
+      "Database.executeBatch(new ${1:BatchName}(), 200);"
+    ],
+    "description": "execute batch"
   },
 }
