@@ -6,7 +6,7 @@
       "",
       "body {",
       "  font-family: \"Hiragino Kaku Gothic ProN\",\"メイリオ\",sans-serif;",
-      "}",
+      "}"
     ],
     "description": "create css init"
   },
@@ -26,7 +26,7 @@
         "}",
         ".THIS .slds-spinner_container {",
         "  z-index: 95;",
-        "}",
+        "}"
     ],
     "description": "lightning spinner の表示範囲を限定する(.cmp側でも修正必要)"
   }

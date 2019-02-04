@@ -312,7 +312,7 @@
       "    <!-- / ファイル -->",
       "",
       "    <version>44.0</version>",
-      "</Package>",
+      "</Package>"
     ],
     "description": "salesforce dx manifest full"
   }

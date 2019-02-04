@@ -7,7 +7,7 @@
 
 
   "console.log_JSON": {
-    "prefix": "sysoutj",
+    "prefix": ["sysoutj","sysoutobj"],
     "body": ["console.log(JSON.stringify($1));$2"],
     "description": "console.log obj->JSON"
   },
@@ -29,7 +29,7 @@
       "    console.log`error: ${JSON.stringify(response.getError())}`;",
       "  }",
       "});",
-      "$$A.enqueueAction(action);",
+      "$$A.enqueueAction(action);"
     ],
     "description": "lightning component apex action"
   },
@@ -48,7 +48,7 @@
       "    \"type\": type,                // 'success'",
       "  });",
       "  toastEvent.fire();",
-      "},",
+      "},"
     ],
     "description": "lightning component toastEvent"
   },
@@ -71,7 +71,7 @@
       "  }",
       "",
       "  this.dispMsg(`エラーが発生しました : ${msg}`, \"error\");",
-      "},",
+      "},"
     ],
     "description": "lightning component action error toastEvent"
   },
@@ -99,8 +99,8 @@
       "  }",
       "});",
       "",
-      "$$A.enqueueAction(action);",
+      "$$A.enqueueAction(action);"
     ],
     "description": "sf-component controller query"
-  },
+  }
 }

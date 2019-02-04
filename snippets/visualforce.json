@@ -208,8 +208,8 @@
       "",
       "</body>",
       "</html>",
-      "</apex:page>",
+      "</apex:page>"
     ],
     "description": "create slds visualforce page full template"
-  },
+  }
 }
