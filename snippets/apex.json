@@ -15,6 +15,22 @@
     "description": "add message to VF"
   },
 
+  "parameter": {
+    "prefix": "para",
+    "body": [
+      "${1:public} ${2:String} ${3} {get; set;}"
+    ],
+    "description": "add apex parameter"
+  },
+
+  "label": {
+    "prefix": "label",
+    "body": [
+      "System.label.${LabelName}"
+    ],
+    "description": "add label"
+  },
+
   "lightning-component_ResultClass": {
     "prefix": "result",
     "body": [
@@ -32,7 +48,7 @@
       "  public String getJson() {",
       "      return JSON.serialize(this);",
       "  }",
-      "}",
+      "}"
     ],
     "description": "lightning-component resultclass"
   },
@@ -45,7 +61,7 @@
       "} catch (Exception e) {",
       "    Database.rollback(sp);",
       "    throw e;",
-      "}",
+      "}"
     ],
     "description": "add savepoint"
   },
@@ -113,7 +129,7 @@
       "            System.assert(e.getMessage().contains('管理者ユーザの発行数上限に達したため、追加出来ません。'));",
       "        }",
       "    }",
-      "}",
+      "}"
     ],
     "description": "init_testclass"
   },
@@ -142,7 +158,7 @@
       "    else if (Trigger.isDelete && Trigger.isBefore) { handler.onBeforeDelete(Trigger.old,              Trigger.oldMap                ); }",
       "    else if (Trigger.isDelete && Trigger.isAfter ) { handler.onAfterDelete( Trigger.old,              Trigger.oldMap                ); }",
       "    else if (Trigger.isUnDelete                  ) { handler.onUndelete(    Trigger.new                                             ); }",
-      "}",
+      "}"
     ],
     "description": "init trigger"
   },
@@ -217,7 +233,7 @@
       "//   内部処理",
       "// ==============",
       "",
-      "}",
+      "}"
     ],
     "description": "init trigger-handler"
   },
@@ -230,7 +246,7 @@
       "} catch (Exception e) {",
       "    Database.rollback(sp);",
       "    throw e;",
-      "}",
+      "}"
     ],
     "description": "rollback"
   },
@@ -301,7 +317,7 @@
       "  private Database.QueryLocator getQueryLocator() {",
       "      return Database.getQueryLocator([  ]);",
       "  }",
-      "}",
+      "}"
     ],
     "description": "batch init"
   },
@@ -312,5 +328,5 @@
       "Database.executeBatch(new ${1:BatchName}(), 200);"
     ],
     "description": "execute batch"
-  },
+  }
 }
