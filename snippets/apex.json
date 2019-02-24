@@ -15,6 +15,14 @@
     "description": "add message to VF"
   },
 
+  "assert": {
+    "prefix": ["assert", "ast"],
+    "body": [
+      "System.assert($1)"
+    ],
+    "description": "add message to VF"
+  },
+
   "parameter": {
     "prefix": "para",
     "body": [
