@@ -336,5 +336,84 @@
       "Database.executeBatch(new ${1:BatchName}(), 200);"
     ],
     "description": "execute batch"
-  }
+  },
+
+  "queueable apex": {
+    "prefix": ["que","queinit","queueable","queueableinit"],
+    "body": [
+      "public class UpdateParentAccount implements Queueable {",
+      "",
+      "    private List<Account> accounts;",
+      "    private ID parent;",
+      "",
+      "    public UpdateParentAccount(List<Account> records, ID id) {",
+      "        this.accounts = records;",
+      "        this.parent = id;",
+      "    }",
+      "    public void execute(QueueableContext context) {",
+      "        for (Account account : accounts) {",
+      "          account.parentId = parent;",
+      "          // perform other processing or callout",
+      "        }",
+      "        update accounts;",
+      "    }",
+      "    /* 使用法 */",
+      "    // find all accounts in ‘NY’",
+      "    //     List<Account> accounts = [select id from account where billingstate = ‘NY’];",
+      "    // find a specific parent account for all records",
+      "    //    Id parentId = [select id from account where name = 'ACME Corp'][0].Id;",
+      "    // instantiate a new instance of the Queueable class",
+      "    //    UpdateParentAccount updateJob = new UpdateParentAccount(accounts, parentId);",
+      "    // enqueue the job for processing",
+      "    //    ID jobID = System.enqueueJob(updateJob);",
+      "}"
+    ],
+    "description": "queueable apex"
+  },
+
+  "queueable test": {
+    "prefix": ["quetest","queueabletest"],
+    "body": [
+      "@isTest",
+      "public class UpdateParentAccountTest {",
+      "    @testSetup",
+      "    static void setup() {",
+      "        List<Account> accounts = new List<Account>();",
+      "        // add a parent account",
+      "        accounts.add(new Account(name='Parent'));",
+      "        // add 100 child accounts",
+      "        for (Integer i = 0; i < 100; i++) {",
+      "            accounts.add(new Account(",
+      "                name='Test Account'+i",
+      "            ));",
+      "        }",
+      "        insert accounts;",
+      "    }",
+      "",
+      "    static testmethod void testQueueable() {",
+      "        // query for test data to pass to queueable class",
+      "        Id parentId = [select id from account where name = 'Parent'][0].Id;",
+      "        List<Account> accounts = [select id, name from account where name like 'Test Account%'];",
+      "        // Create our Queueable instance",
+      "        UpdateParentAccount updater = new UpdateParentAccount(accounts, parentId);",
+      "        // startTest/stopTest block to force async processes to run",
+      "        Test.startTest();",
+      "        System.enqueueJob(updater);",
+      "        Test.stopTest();",
+      "        // Validate the job ran. Check if record have correct parentId now",
+      "        System.assertEquals(100, [select count() from account where parentId = :parentId]);",
+      "    }",
+      "",
+      "}"
+    ],
+    "description": "queueable test"
+  },
+
+  "clone": {
+    "prefix": "clone",
+    "body": [
+      "clone(false, true, false, false);"
+    ],
+    "description": "clone"
+  },
 }
