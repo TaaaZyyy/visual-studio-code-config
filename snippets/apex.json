@@ -8,11 +8,11 @@
   },
 
   "addMessage": {
-    "prefix": "addmsg",
+    "prefix": ["addmsg","addmessage"],
     "body": [
       "ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1:CONFIRM,ERROR,FATAL,INFO,WARNING},${2:'msg'} ,${3:'detail'}));"
     ],
-    "description": "add message to VF"
+    "description": "add message to VF。成功は「CONFIRM」をえらぶ"
   },
 
   "parameter": {
@@ -122,7 +122,7 @@
   },
 
   "trriger_init": {
-    "prefix": ["trinit","triginit","triggerinit","trigger"],
+    "prefix": ["trinit","tginit","triginit","triggerinit","trigger"],
     "body": [
       "/**",
       "* ${1:SObjectLabelNameトリガ}",
@@ -151,7 +151,7 @@
   },
 
   "trriger-handler_init": {
-    "prefix": ["handinit","handler","handlerinit"],
+    "prefix": ["thinit","handinit","handler","handlerinit"],
     "body": [
       "public with sharing class ${1:TriggerHandlerName} {",
       "",
@@ -308,7 +308,7 @@
 
 
 
-  
+
   "rollback": {
     "prefix": ["rollback","sp","savepoint","save"],
     "body": [
@@ -322,14 +322,22 @@
     "description": "rollback"
   },
 
-  "exception": {
-    "prefix": ["try","exception"],
+  "try_catch": {
+    "prefix": ["try","catch"],
     "body": [
       "try {",
       "} catch (Exception e) {",
       "    System.debug( LoggingLevel.ERROR, 'error: ' + e.getMessage() );",
       "    System.debug( LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString() );",
       "}"
+    ],
+    "description": "try_catch"
+  },
+
+  "exception": {
+    "prefix": "exception",
+    "body": [
+      "public class MyException extends Exception {}"
     ],
     "description": "exception"
   }
