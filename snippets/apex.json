@@ -8,11 +8,11 @@
   },
 
   "addMessage": {
-    "prefix": "addmsg",
+    "prefix": ["addmsg","addmessage"],
     "body": [
       "ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1:CONFIRM,ERROR,FATAL,INFO,WARNING},${2:'msg'} ,${3:'detail'}));"
     ],
-    "description": "add message to VF"
+    "description": "add message to VF。成功は「CONFIRM」をえらぶ"
   },
 
   "assert": {
@@ -59,19 +59,6 @@
       "}"
     ],
     "description": "lightning-component resultclass"
-  },
-
-  "savePoint": {
-    "prefix": ["sp","savepoint","save"],
-    "body": [
-      "SavePoint sp = Database.setSavePoint();",
-      "try {",
-      "} catch (Exception e) {",
-      "    Database.rollback(sp);",
-      "    throw e;",
-      "}"
-    ],
-    "description": "add savepoint"
   },
 
   "test_class": {
@@ -143,7 +130,7 @@
   },
 
   "trriger_init": {
-    "prefix": ["trinit","triginit","triggerinit","trigger"],
+    "prefix": ["trinit","tginit","triginit","triggerinit","trigger"],
     "body": [
       "/**",
       "* ${1:SObjectLabelNameトリガ}",
@@ -172,7 +159,7 @@
   },
 
   "trriger-handler_init": {
-    "prefix": ["handinit","handler","handlerinit"],
+    "prefix": ["thinit","handinit","handler","handlerinit"],
     "body": [
       "public with sharing class ${1:TriggerHandlerName} {",
       "",
@@ -246,18 +233,7 @@
     "description": "init trigger-handler"
   },
 
-  "rollback": {
-    "prefix": "rollback",
-    "body": [
-      "SavePoint sp = Database.setSavePoint();",
-      "try {",
-      "} catch (Exception e) {",
-      "    Database.rollback(sp);",
-      "    throw e;",
-      "}"
-    ],
-    "description": "rollback"
-  },
+
 
   "batch": {
     "prefix": ["batchinit","batch","scheduleinit","schdule","sch"],
@@ -267,64 +243,64 @@
       "*/",
       "global with sharing class ${1:BatchName} implements Database.Batchable<sObject>, Schedulable, Database.stateful {",
       "",
-      "  global static final Integer BATCH_SIZE = 200;",
-      "  private Date targetDate;",
+      "    global static final Integer BATCH_SIZE = 200;",
+      "    private Date targetDate;",
       "",
       "",
       "",
-      "  /** スケジュール起動*/",
-      "  global static void execute(SchedulableContext sc) {",
-      "      Date targetDate = Date.today();",
-      "      System.debug('### Returned batch process ID: '",
-      "              + Database.executeBatch(new BatchName( targetDate ), BATCH_SIZE));",
-      "  }",
+      "    /** スケジュール起動*/",
+      "    global static void execute(SchedulableContext sc) {",
+      "        Date targetDate = Date.today();",
+      "        System.debug('### Returned batch process ID: '",
+      "                + Database.executeBatch(new BatchName( targetDate ), BATCH_SIZE));",
+      "    }",
       "",
       "",
       "",
-      "  /** コンストラクタ */",
-      "  global BatchName() {",
-      "      this.targetDate = Date.today();",
-      "  }",
+      "    /** コンストラクタ */",
+      "    global BatchName() {",
+      "        this.targetDate = Date.today();",
+      "    }",
       "",
       "",
       "",
-      "  /** コンストラクタ */",
-      "  global BatchName(Date pTargetDate){",
-      "      this.targetDate = pTargetDate;",
-      "  }",
+      "    /** コンストラクタ */",
+      "    global BatchName(Date pTargetDate){",
+      "        this.targetDate = pTargetDate;",
+      "    }",
       "",
       "",
       "",
-      "  /** 開始メソッド */",
-      "  global Database.QueryLocator start(Database.BatchableContext BC) {",
-      "      System.debug('### start ###');",
+      "    /** 開始メソッド */",
+      "    global Database.QueryLocator start(Database.BatchableContext BC) {",
+      "        System.debug('### start ###');",
       "",
-      "      return getQueryLocator();",
-      "  }",
-      "",
-      "",
-      "",
-      "  /** 実行メソッド */",
-      "  global void execute(Database.BatchableContext BC, List<${2:SObject}> ${3:parameterName}) {",
-      "      System.debug('### execute ###');",
-      "  }",
+      "        return getQueryLocator();",
+      "    }",
       "",
       "",
       "",
-      "  /** 終了メソッド */",
-      "  global void finish(Database.BatchableContext BC) {",
-      "      System.debug('### finish ###');",
-      "  }",
+      "    /** 実行メソッド */",
+      "    global void execute(Database.BatchableContext BC, List<${2:SObject}> ${3:parameterName}) {",
+      "        System.debug('### execute ###');",
+      "    }",
+      "",
+      "",
+      "",
+      "    /** 終了メソッド */",
+      "    global void finish(Database.BatchableContext BC) {",
+      "        System.debug('### finish ###');",
+      "    }",
       "",
       "",
       "",
       "// ===================",
       "//  内部メソッド",
       "// ===================",
-      "  /** 取得メソッド */",
-      "  private Database.QueryLocator getQueryLocator() {",
-      "      return Database.getQueryLocator([  ]);",
-      "  }",
+      "    /** 取得メソッド */",
+      "    private Database.QueryLocator getQueryLocator() {",
+      "        return Database.getQueryLocator([  ]);",
+      "    }",
       "}"
     ],
     "description": "batch init"
@@ -336,5 +312,42 @@
       "Database.executeBatch(new ${1:BatchName}(), 200);"
     ],
     "description": "execute batch"
+  },
+
+
+
+
+  "rollback": {
+    "prefix": ["rollback","sp","savepoint","save"],
+    "body": [
+      "SavePoint sp = Database.setSavePoint();",
+      "try {",
+      "} catch (Exception e) {",
+      "    Database.rollback(sp);",
+      "    throw e;",
+      "}"
+    ],
+    "description": "rollback"
+  },
+
+  "try_catch": {
+    "prefix": ["try","catch"],
+    "body": [
+      "try {",
+      "} catch (Exception e) {",
+      "    System.debug( LoggingLevel.ERROR, 'error: ' + e.getMessage() );",
+      "    System.debug( LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString() );",
+      "}"
+    ],
+    "description": "try_catch"
+  },
+
+  "exception": {
+    "prefix": "exception",
+    "body": [
+      "public class MyException extends Exception {}"
+    ],
+    "description": "exception"
   }
+
 }
