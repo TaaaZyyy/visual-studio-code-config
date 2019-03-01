@@ -1,4 +1,11 @@
 {
+  "addMessage": {
+    "prefix": ["addmsg","addmessage","msg","message"],
+    "body": [
+      "<apex:pageMessage title=\"${1}\" summary=\"${2}\" detail=\"${3}\" severity=\"${4:confirm、info、warning、error}\" strength=\"${5:1、2、3}\" />"
+    ],
+    "description": "add message。成功は「CONFIRM」をえらぶ"
+  },
   "sldx init": {
     "prefix": "sldsinit",
     "body": [
