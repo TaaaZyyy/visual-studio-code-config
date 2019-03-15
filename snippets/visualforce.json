@@ -1,4 +1,12 @@
 {
+  "label": {
+    "prefix": "label",
+    "body": [
+      "{! \\$Label.CustomLabelName}"
+    ],
+    "description": "label"
+  },
+
   "addMessage": {
     "prefix": ["addmsg","addmessage","msg","message"],
     "body": [

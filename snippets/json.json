@@ -1,0 +1,15 @@
+{
+  "snipet": {
+    "prefix": ["sni","snipet"],
+     "body": [
+      "  \"${1:snipetName}\": {",
+      "    \"prefix\": \"$2\",",
+      "    \"body\": [",
+      "      $4",
+      "    ],",
+      "    \"description\": \"$3\"",
+      "  },"
+     ],
+     "description": "snipet"
+   }
+}

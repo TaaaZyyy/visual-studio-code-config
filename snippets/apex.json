@@ -23,6 +23,14 @@
     "description": "add message to VF"
   },
 
+    "HTTPパラメータ": {
+      "prefix": "getpara",
+      "body": [
+        "ApexPages.CurrentPage().getParameters().get('${1:id}');"
+      ],
+      "description": "add getparameter"
+    },
+
   "parameter": {
     "prefix": "para",
     "body": [
