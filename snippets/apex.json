@@ -23,13 +23,13 @@
     "description": "add message to VF"
   },
 
-    "HTTPパラメータ": {
-      "prefix": "getpara",
-      "body": [
-        "ApexPages.CurrentPage().getParameters().get('${1:id}');"
-      ],
-      "description": "add getparameter"
-    },
+  "HTTPパラメータ": {
+    "prefix": ["getpara", "get"],
+    "body": [
+      "ApexPages.CurrentPage().getParameters().get('${1:id}');"
+    ],
+    "description": "add getparameter"
+  },
 
   "parameter": {
     "prefix": "para",
@@ -45,6 +45,16 @@
       "System.label.${LabelName}"
     ],
     "description": "add label"
+  },
+
+  "redirect": {
+    "prefix": "redirect",
+    "body": [
+      "PageReference ref = Page.MyPage;",
+      "ref.getParameters().put('id', windowId);",
+      "return ref.setRedirect(true);"
+    ],
+    "description": "add redirect"
   },
 
   "lightning-component_ResultClass": {
@@ -345,6 +355,7 @@
       "} catch (Exception e) {",
       "    System.debug( LoggingLevel.ERROR, 'error: ' + e.getMessage() );",
       "    System.debug( LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString() );",
+      "    ApexPages.addMessages(e);",
       "}"
     ],
     "description": "try_catch"
