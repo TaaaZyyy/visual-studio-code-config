@@ -10,6 +10,8 @@
     "explorer.confirmDragAndDrop": false,
     // クリップボード設定
     "editor.copyWithSyntaxHighlighting": false,
+    // パンくずリスト
+    "breadcrumbs.enabled": true,
 
     // 【見た目の変更】
     // テーマ
@@ -227,9 +229,9 @@
     "printcode.fontSize": 2,
 
 
-    
+
     // ★ローカル
     // 【Salesforceの設定】
     // JDKの場所
-    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161"
+    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
 }
