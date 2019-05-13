@@ -1,4 +1,14 @@
 {
+    "privateMethod": {
+      "prefix": ["naibu","private"],
+      "body": [
+        "// ===================",
+        "//  内部メソッド",
+        "// ==================="
+      ],
+      "description": "内部メソッドコメント"
+    },
+
   "debug": {
     "prefix": "sysout",
     "body": [
@@ -283,7 +293,7 @@
       "",
       "",
       "    /** コンストラクタ */",
-      "    global BatchName(Date pTargetDate){",
+      "    global BatchName(Date pTargetDate) {",
       "        this.targetDate = pTargetDate;",
       "    }",
       "",
