@@ -1,4 +1,20 @@
 {
+  "addActionFunction": {
+    "prefix": ["actionfunction","actionFunction","<apex:actionFunction"],
+    "body": [
+      "<apex:actionFunction name=\"${1}\" action=\"{!${2}}\" reRender=\"${3}\"/>"
+    ],
+    "description": "actionFunction"
+  },
+
+  "urlfor": {
+    "prefix": ["urlfor", "URLFOR"],
+    "body": [
+      "{!URLFOR(${1}, ${2:id}, [${3:params}], ${4:isNoOverride})}"
+    ],
+    "description": "add URLFOR"
+  },
+
   "label": {
     "prefix": "label",
     "body": [
