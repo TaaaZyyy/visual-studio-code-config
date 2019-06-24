@@ -1,13 +1,13 @@
 {
-    "privateMethod": {
-      "prefix": ["naibu","private"],
-      "body": [
-        "// ===================",
-        "//  内部メソッド",
-        "// ==================="
-      ],
-      "description": "内部メソッドコメント"
-    },
+  "privateMethod": {
+    "prefix": ["naibu","private"],
+    "body": [
+      "// ===================",
+      "//  内部メソッド",
+      "// ==================="
+    ],
+    "description": "内部メソッドコメント"
+  },
 
   "debug": {
     "prefix": "sysout",
@@ -23,6 +23,14 @@
       "ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1:CONFIRM,ERROR,FATAL,INFO,WARNING},${2:'msg'} ,${3:'detail'}));"
     ],
     "description": "add message to VF。成功は「CONFIRM」をえらぶ"
+  },
+
+  "clone": {
+    "prefix": ["clone"],
+    "body": [
+      "clone(${1:isMaintainedId★false)}, ${2:isDeepClone★true})"
+    ],
+    "description": "SObjectのclone"
   },
 
   "assert": {
@@ -170,17 +178,17 @@
       "        after  update,",
       "        before delete,",
       "        after  delete,",
-      "        after  undelete ) {",
+      "        after  undelete) {",
       "",
-      "    ${3:TriggerHandler} handler = new ${4:TriggerHandler}( Trigger.isExecuting, Trigger.size );",
+      "    ${3:TriggerHandler} handler = new ${4:TriggerHandler}(Trigger.isExecuting, Trigger.size);",
       "",
-      "    if      (Trigger.isInsert && Trigger.isBefore) { handler.onBeforeInsert(Trigger.new                                             ); }",
-      "    else if (Trigger.isInsert && Trigger.isAfter ) { handler.onAfterInsert( Trigger.new,                              Trigger.newMap); }",
+      "    if      (Trigger.isInsert && Trigger.isBefore) { handler.onBeforeInsert(             Trigger.new                                ); }",
+      "    else if (Trigger.isInsert && Trigger.isAfter ) { handler.onAfterInsert(              Trigger.new,                 Trigger.newMap); }",
       "    else if (Trigger.isUpdate && Trigger.isBefore) { handler.onBeforeUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap); }",
       "    else if (Trigger.isUpdate && Trigger.isAfter ) { handler.onAfterUpdate( Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap); }",
       "    else if (Trigger.isDelete && Trigger.isBefore) { handler.onBeforeDelete(Trigger.old,              Trigger.oldMap                ); }",
       "    else if (Trigger.isDelete && Trigger.isAfter ) { handler.onAfterDelete( Trigger.old,              Trigger.oldMap                ); }",
-      "    else if (Trigger.isUnDelete                  ) { handler.onUndelete(    Trigger.new                                             ); }",
+      "    else if (Trigger.isUnDelete                  ) { handler.onUndelete(                 Trigger.new                                ); }",
       "}"
     ],
     "description": "init trigger"
@@ -279,8 +287,7 @@
       "    /** スケジュール起動*/",
       "    global static void execute(SchedulableContext sc) {",
       "        Date targetDate = Date.today();",
-      "        System.debug('### Returned batch process ID: '",
-      "                + Database.executeBatch(new BatchName( targetDate ), BATCH_SIZE));",
+      "        System.debug('### Returned batch process ID: ' + Database.executeBatch(new BatchName(targetDate), BATCH_SIZE));",
       "    }",
       "",
       "",
@@ -363,8 +370,8 @@
     "body": [
       "try {",
       "} catch (Exception e) {",
-      "    System.debug( LoggingLevel.ERROR, 'error: ' + e.getMessage() );",
-      "    System.debug( LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString() );",
+      "    System.debug(LoggingLevel.ERROR, 'error: ' + e.getMessage());",
+      "    System.debug(LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString());",
       "    ApexPages.addMessages(e);",
       "    return null;",
       "}"
