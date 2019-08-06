@@ -14,15 +14,17 @@ mklink /d "C:\Users\ユーザ名\AppData\Roaming\Code\User\snippets"  "D:\プロ
 ### 汎用
 - Bracket Pair Colorizer 2
     - コードブロックをわかりやすくする
-- Japanese Language Pack for Visual Studio Code
-    - 日本語化
-- Image Preview
-    - 画像のパスにマウスオーバーするとツールチップで画像を表示
-- Insert Numbers
-    - マルチカーソルに連番挿入
-### Git
 - GitLens — Git supercharged
     - 高性能なGUI。行ごとに最終更新者が見れる。コミット間の差分が見やすい。
+- Insert Numbers
+    - マルチカーソルに連番挿入
+- Japanese Language Pack for Visual Studio Code
+    - 日本語化
+- PlantUML
+- PrintCode
+- TODO Highlight
+### CSV
+- Rainbow CSV
 ### HTML
 - Auto Rename Tag
     - 開始タグを変更すると同時に終了タグも変更される
