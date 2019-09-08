@@ -28,7 +28,7 @@
   "clone": {
     "prefix": ["clone"],
     "body": [
-      "clone(${1:isMaintainedId★false)}, ${2:isDeepClone★true})"
+      "clone(${1:isMaintainedId★false)}, ${2:isDeepClone★true}, false, false)"
     ],
     "description": "SObjectのclone"
   },
@@ -419,14 +419,6 @@
       "}"
     ],
     "description": "queueable test"
-  },
-
-  "clone": {
-    "prefix": "clone",
-    "body": [
-      "clone(false, true, false, false);"
-    ],
-    "description": "clone"
   },
 
   "rollback": {
