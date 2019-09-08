@@ -1,4 +1,14 @@
 {
+  "privateMethod": {
+    "prefix": ["naibu","private"],
+    "body": [
+      "// ===================",
+      "//  内部メソッド",
+      "// ==================="
+    ],
+    "description": "内部メソッドコメント"
+  },
+
   "debug": {
     "prefix": "sysout",
     "body": [
@@ -8,11 +18,19 @@
   },
 
   "addMessage": {
-    "prefix": "addmsg",
+    "prefix": ["addmsg","addmessage"],
     "body": [
       "ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.${1:CONFIRM,ERROR,FATAL,INFO,WARNING},${2:'msg'} ,${3:'detail'}));"
     ],
-    "description": "add message to VF"
+    "description": "add message to VF。成功は「CONFIRM」をえらぶ"
+  },
+
+  "clone": {
+    "prefix": ["clone"],
+    "body": [
+      "clone(${1:isMaintainedId★false)}, ${2:isDeepClone★true})"
+    ],
+    "description": "SObjectのclone"
   },
 
   "assert": {
@@ -21,6 +39,14 @@
       "System.assert($1)"
     ],
     "description": "add message to VF"
+  },
+
+  "HTTPパラメータ": {
+    "prefix": ["getpara", "get"],
+    "body": [
+      "ApexPages.CurrentPage().getParameters().get('${1:id}');"
+    ],
+    "description": "add getparameter"
   },
 
   "parameter": {
@@ -37,6 +63,16 @@
       "System.label.${LabelName}"
     ],
     "description": "add label"
+  },
+
+  "redirect": {
+    "prefix": "redirect",
+    "body": [
+      "PageReference ref = Page.MyPage;",
+      "ref.getParameters().put('id', windowId);",
+      "return ref.setRedirect(true);"
+    ],
+    "description": "add redirect"
   },
 
   "lightning-component_ResultClass": {
@@ -59,19 +95,6 @@
       "}"
     ],
     "description": "lightning-component resultclass"
-  },
-
-  "savePoint": {
-    "prefix": ["sp","savepoint","save"],
-    "body": [
-      "SavePoint sp = Database.setSavePoint();",
-      "try {",
-      "} catch (Exception e) {",
-      "    Database.rollback(sp);",
-      "    throw e;",
-      "}"
-    ],
-    "description": "add savepoint"
   },
 
   "test_class": {
@@ -143,7 +166,7 @@
   },
 
   "trriger_init": {
-    "prefix": ["trinit","triginit","triggerinit","trigger"],
+    "prefix": ["trinit","tginit","triginit","triggerinit","trigger"],
     "body": [
       "/**",
       "* ${1:SObjectLabelNameトリガ}",
@@ -155,7 +178,7 @@
       "        after  update,",
       "        before delete,",
       "        after  delete,",
-      "        after  undelete ) {",
+      "        after  undelete) {",
       "",
       "    ${4:TriggerHandler} handler = new ${4:TriggerHandler}( Trigger.isExecuting, Trigger.size );",
       "",
@@ -173,7 +196,7 @@
   },
 
   "trriger-handler_init": {
-    "prefix": ["handinit","handler","handlerinit"],
+    "prefix": ["thinit","handinit","handler","handlerinit"],
     "body": [
       "public without sharing class ${1:TriggerHandlerName} {",
       "",
@@ -247,18 +270,7 @@
     "description": "init trigger-handler"
   },
 
-  "rollback": {
-    "prefix": "rollback",
-    "body": [
-      "SavePoint sp = Database.setSavePoint();",
-      "try {",
-      "} catch (Exception e) {",
-      "    Database.rollback(sp);",
-      "    throw e;",
-      "}"
-    ],
-    "description": "rollback"
-  },
+
 
   "batch": {
     "prefix": ["batchinit","batch","scheduleinit","schdule","sch"],
@@ -276,8 +288,7 @@
       "    /** スケジュール起動*/",
       "    global static void execute(SchedulableContext sc) {",
       "        Date targetDate = Date.today();",
-      "        System.debug('### Returned batch process ID: '",
-      "                + Database.executeBatch(new BatchName( targetDate ), BATCH_SIZE));",
+      "        System.debug('### Returned batch process ID: ' + Database.executeBatch(new BatchName(targetDate), BATCH_SIZE));",
       "    }",
       "",
       "",
@@ -290,7 +301,7 @@
       "",
       "",
       "    /** コンストラクタ */",
-      "    global BatchName(Date pTargetDate){",
+      "    global BatchName(Date pTargetDate) {",
       "        this.targetDate = pTargetDate;",
       "    }",
       "",
@@ -417,4 +428,111 @@
     ],
     "description": "clone"
   },
+
+  "rollback": {
+    "prefix": ["rollback","sp","savepoint","save"],
+    "body": [
+      "SavePoint sp = Database.setSavePoint();",
+      "try {",
+      "} catch (Exception e) {",
+      "    Database.rollback(sp);",
+      "    throw e;",
+      "}"
+    ],
+    "description": "rollback"
+  },
+
+  "try_catch": {
+    "prefix": ["try","catch"],
+    "body": [
+      "try {",
+      "} catch (Exception e) {",
+      "    System.debug(LoggingLevel.ERROR, 'error: ' + e.getMessage());",
+      "    System.debug(LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString());",
+      "    ApexPages.addMessages(e);",
+      "    return null;",
+      "}"
+    ],
+    "description": "try_catch"
+  },
+
+  "exception": {
+    "prefix": "exception",
+    "body": [
+      "public class MyException extends Exception {}"
+    ],
+    "description": "exception"
+  },
+
+  "restApi": {
+    "prefix": "rest",
+    "body": [
+      "// /services/apexrest/Cases/[Id]",
+      "@RestResource(urlMapping='/Cases/*')",
+      "global with sharing class CaseManager {",
+      "    @HttpGet",
+      "    global static Case getCaseById() {",
+      "        RestRequest request = RestContext.request;",
+      "        // grab the caseId from the end of the URL",
+      "        String caseId = request.requestURI.substring(",
+      "          request.requestURI.lastIndexOf('/')+1);",
+      "        Case result =  [SELECT CaseNumber,Subject,Status,Origin,Priority",
+      "                        FROM Case",
+      "                        WHERE Id = :caseId];",
+      "        return result;",
+      "    }",
+      "    @HttpPost",
+      "    global static ID createCase(String subject, String status,",
+      "        String origin, String priority) {",
+      "        Case thisCase = new Case(",
+      "            Subject=subject,",
+      "            Status=status,",
+      "            Origin=origin,",
+      "            Priority=priority);",
+      "        insert thisCase;",
+      "        return thisCase.Id;",
+      "    }",
+      "    @HttpDelete",
+      "    global static void deleteCase() {",
+      "        RestRequest request = RestContext.request;",
+      "        String caseId = request.requestURI.substring(",
+      "            request.requestURI.lastIndexOf('/')+1);",
+      "        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];",
+      "        delete thisCase;",
+      "    }",
+      "    @HttpPut",
+      "    global static ID upsertCase(String subject, String status,",
+      "        String origin, String priority, String id) {",
+      "        Case thisCase = new Case(",
+      "                Id=id,",
+      "                Subject=subject,",
+      "                Status=status,",
+      "                Origin=origin,",
+      "                Priority=priority);",
+      "        // Match case by Id, if present.",
+      "        // Otherwise, create new case.",
+      "        upsert thisCase;",
+      "        // Return the case ID.",
+      "        return thisCase.Id;",
+      "    }",
+      "    @HttpPatch",
+      "    global static ID updateCaseFields() {",
+      "        RestRequest request = RestContext.request;",
+      "        String caseId = request.requestURI.substring(",
+      "            request.requestURI.lastIndexOf('/')+1);",
+      "        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];",
+      "        // Deserialize the JSON string into name-value pairs",
+      "        Map<String, Object> params = (Map<String, Object>)JSON.deserializeUntyped(request.requestbody.tostring());",
+      "        // Iterate through each parameter field and value",
+      "        for(String fieldName : params.keySet()) {",
+      "            // Set the field and value on the Case sObject",
+      "            thisCase.put(fieldName, params.get(fieldName));",
+      "        }",
+      "        update thisCase;",
+      "        return thisCase.Id;",
+      "    }",
+      "}"
+    ],
+    "description": ""
+  }
 }

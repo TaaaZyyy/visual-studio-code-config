@@ -1,18 +1,24 @@
 {
     // ★パブリック
-    
+
     // 【ユーティリティ】
     // 初期ファイルのドキュメントタイプ
     "files.defaultLanguage": "markdown",
     // 自動保存
     "files.autoSave": "afterDelay",
+    // エクスプローラ設定
+    "explorer.confirmDragAndDrop": false,
+    // クリップボード設定
+    "editor.copyWithSyntaxHighlighting": false,
+    // パンくずリスト
+    "breadcrumbs.enabled": true,
 
     // 【見た目の変更】
     // テーマ
     // "workbench.colorTheme": "Default Light+",
     // "workbench.colorTheme": "Solarized Light",
     // 画面の拡大
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     // ルーラー
     "editor.rulers": [
         80,
@@ -30,7 +36,7 @@
     // 制御文字の表示
     "editor.renderControlCharacters": true,
     "editor.fontFamily": "Consolas, 'Courier New', monospace, メイリオ",
-    
+
 
 
     // 【入力補助】
@@ -59,8 +65,8 @@
     // 文字コード
     "files.encoding": "utf8",
     // 改行コード
-    // "files.eol": "\r\n",
-    // "files.eol": "\n",
+    // "files.eol": "\r\n"
+    "files.eol": "\n",
     // インデント
     // "editor.detectIndentation": false,
     // "editor.insertSpaces": false,
@@ -72,6 +78,11 @@
     // https://technical-creator.com/vscode-emmet/
     "emmet.triggerExpansionOnTab": true,
     "emmet.variables": {"lang" : "ja"},
+
+    // ファイルの対応付
+    "files.associations": {
+        "*.xml": "xml"
+    },
 
 
 
@@ -86,6 +97,9 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
+    },
+    "[apexlog]": {
+        "editor.wordWrap": "on"
     },
     "[javascript]": {
         "editor.detectIndentation": false,
@@ -119,14 +133,105 @@
         "editor.insertSpaces": false,
     },
 
-
     // git
     "git.enableSmartCommit": true,
+
+
+
+    // 【拡張】
+    // 【Salesforce】
+    "salesforcedx-vscode-core.retrieve-test-code-coverage":true,
+
+    // 【InsertNumbers】
+    "insertnum.formatstr" : "%d",
+    "insertnum.start" : 1,
+    "insertnum.step" : 1,
+
+    // 【TODO Highlight】
+    "todohighlight.include": [
+        "**/*.cls",
+    ],
+    // TODO: FIXME:
+    "todohighlight.keywords": [
+        {
+            "text": "懸念点:",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "実装:",
+            "color": "#000",
+            "backgroundColor": "#ffaaaa",
+        },
+        {
+            "text": "要調査:",
+            "color": "#000",
+            "backgroundColor": "#aaaaff",
+        },
+        {
+            "text": "要確認:",
+            "color": "#000",
+            "backgroundColor": "#aaaaff",
+        },
+        {
+            "text": "憶測:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "疑問:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "課題:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "メモ:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "済:",
+            "color": "#000",
+            "backgroundColor": "#888",
+        },
+        {
+            "text": "対応済:",
+            "color": "#000",
+            "backgroundColor": "#888",
+        },
+        {
+            "text": "調査済:",
+            "color": "#000",
+            "backgroundColor": "#888",
+        },
+        {
+            "text": "|USER_DEBUG|",
+            "color": "#000",
+            "backgroundColor": "#ffaaaa",
+        },
+        {
+            "text": "|EXCEPTION_THROWN|",
+            "color": "#000",
+            "backgroundColor": "red",
+        },
+        {
+            "text": "|FATAL_ERROR|",
+            "color": "#000",
+            "backgroundColor": "red",
+        },
+    ],
+
+    // 【printcode】
+    "printcode.fontSize": 2,
+
 
 
     // ★ローカル
     // 【Salesforceの設定】
     // JDKの場所
-    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jre1.8.0_73",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk1.8.0_161",
 }

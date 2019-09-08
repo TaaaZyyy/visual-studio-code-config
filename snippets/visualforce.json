@@ -1,4 +1,35 @@
 {
+  "addActionFunction": {
+    "prefix": ["actionfunction","actionFunction","<apex:actionFunction"],
+    "body": [
+      "<apex:actionFunction name=\"${1}\" action=\"{!${2}}\" reRender=\"${3}\"/>"
+    ],
+    "description": "actionFunction"
+  },
+
+  "urlfor": {
+    "prefix": ["urlfor", "URLFOR"],
+    "body": [
+      "{!URLFOR(${1}, ${2:id}, [${3:params}], ${4:isNoOverride})}"
+    ],
+    "description": "add URLFOR"
+  },
+
+  "label": {
+    "prefix": "label",
+    "body": [
+      "{! \\$Label.CustomLabelName}"
+    ],
+    "description": "label"
+  },
+
+  "addMessage": {
+    "prefix": ["addmsg","addmessage","msg","message"],
+    "body": [
+      "<apex:pageMessage title=\"${1}\" summary=\"${2}\" detail=\"${3}\" severity=\"${4:confirm、info、warning、error}\" strength=\"${5:1、2、3}\" />"
+    ],
+    "description": "add message。成功は「CONFIRM」をえらぶ"
+  },
   "sldx init": {
     "prefix": "sldsinit",
     "body": [
