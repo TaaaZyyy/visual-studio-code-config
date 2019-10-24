@@ -180,7 +180,7 @@
       "        after  delete,",
       "        after  undelete) {",
       "",
-      "    ${4:TriggerHandler} handler = new ${4:TriggerHandler}( Trigger.isExecuting, Trigger.size );",
+      "    ${4:TriggerName}Handler handler = new ${4:TriggerName}Handler( Trigger.isExecuting, Trigger.size );",
       "",
       "    switch on Trigger.operationType {",
       "        when BEFORE_INSERT  { handler.onBeforeInsert(Trigger.new                                             ); }",
@@ -190,7 +190,8 @@
       "        when BEFORE_DELETE  { handler.onBeforeDelete(Trigger.old,              Trigger.oldMap                ); }",
       "        when AFTER_DELETE   { handler.onAfterDelete( Trigger.old,              Trigger.oldMap                ); }",
       "        when AFTER_UNDELETE { handler.onUndelete(    Trigger.new                                             ); }",
-      "    }"
+      "    }",
+      "}"
     ],
     "description": "init trigger"
   },
@@ -317,7 +318,7 @@
       "",
       "",
       "    /** 実行メソッド */",
-      "    global void execute(Database.BatchableContext BC, List<${2:SObject}> ${3:parameterName}) {",
+      "    global void execute(Database.BatchableContext BC, List<${2:SObject}> ${3:scope}) {",
       "        System.debug('### execute ###');",
       "    }",
       "",
