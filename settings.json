@@ -18,7 +18,7 @@
     // "workbench.colorTheme": "Default Light+",
     // "workbench.colorTheme": "Solarized Light",
     // 画面の拡大
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     // ルーラー
     "editor.rulers": [
         80,
@@ -96,7 +96,7 @@
     "[visualforce]": {
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
-        "editor.tabSize": 2,
+        "editor.tabSize": 4,
     },
     "[apexlog]": {
         "editor.wordWrap": "on"
@@ -132,6 +132,13 @@
         "editor.detectIndentation": false,
         "editor.insertSpaces": false,
     },
+    "[bat]": {
+        // 行の折り返し
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 120,
+        "files.encoding": "shiftjis",
+        "files.eol": "\r\n"
+    },
 
     // git
     "git.enableSmartCommit": true,
@@ -155,6 +162,51 @@
     "todohighlight.keywords": [
         {
             "text": "懸念点:",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "return ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "insert ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "update ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "delete ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "upsert ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.insert(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.update(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.upsert(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.delete(",
             "color": "#000",
             "isWholeLine": false,
         },
@@ -224,9 +276,6 @@
             "backgroundColor": "red",
         },
     ],
-
-    // 【printcode】
-    "printcode.fontSize": 2,
 
 
 
