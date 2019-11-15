@@ -279,7 +279,7 @@
       "/**",
       "* バッチ",
       "*/",
-      "global with sharing class ${1:BatchName} implements Database.Batchable<sObject>, Schedulable, Database.stateful {",
+      "global with sharing class ${1:BatchName} implements Database.Batchable<SObject>, Schedulable, Database.stateful {",
       "",
       "    global static final Integer BATCH_SIZE = 200;",
       "    private Date targetDate;",
@@ -530,5 +530,16 @@
       "}"
     ],
     "description": ""
+  },
+
+  "futre": {
+    "prefix": "future",
+    "body": [
+      "@future",
+      "private static void myFutureMethod() {",
+      "    // Perform some operations",
+      "}"
+    ],
+    "description": "future method"
   }
 }
