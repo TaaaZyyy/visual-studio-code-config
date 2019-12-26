@@ -117,7 +117,7 @@
       "    *・の状態で・をすると・になる",
       "    */",
       "    @isTest static void testメソッド名() {",
-      "         // 事前準備を記述",
+      "        // 事前準備を記述",
       "        Test.startTest();",
       "        // 実行を記述",
       "        Test.stopTest();",
@@ -428,7 +428,7 @@
   "rollback": {
     "prefix": ["rollback","sp","savepoint","save"],
     "body": [
-      "SavePoint sp = Database.setSavePoint();",
+      "Savepoint sp = Database.setSavepoint();",
       "try {",
       "} catch (Exception e) {",
       "    Database.rollback(sp);",
@@ -443,8 +443,8 @@
     "body": [
       "try {",
       "} catch (Exception e) {",
-      "    System.debug(LoggingLevel.ERROR, 'error: ' + e.getMessage());",
-      "    System.debug(LoggingLevel.ERROR, 'stacktrace: ' +e.getStackTraceString());",
+      "    System.debug(LoggingLevel.ERROR, 'error: '      + e.getMessage());",
+      "    System.debug(LoggingLevel.ERROR, 'stacktrace: ' + e.getStackTraceString());",
       "    ApexPages.addMessages(e);",
       "    return null;",
       "}"
