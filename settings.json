@@ -3,7 +3,322 @@
 
     // 【ユーティリティ】
     // 初期ファイルのドキュメントタイプ
+    "files.defaultLanguage": "markdown",{
+    // ★パブリック
+
+    // 【ユーティリティ】
+    // 初期ファイルのドキュメントタイプ
     "files.defaultLanguage": "markdown",
+    // 自動保存
+    "files.autoSave": "afterDelay",
+    // エクスプローラ設定
+    "explorer.confirmDragAndDrop": false,
+    // クリップボード設定
+    "editor.copyWithSyntaxHighlighting": false,
+    // パンくずリスト
+    "breadcrumbs.enabled": true,
+
+    // 【見た目の変更】
+    // テーマ
+    "workbench.colorTheme": "Codey Midnight",
+    // "workbench.colorTheme": "Default Light+",
+    // "workbench.colorTheme": "Solarized Light",
+    // 画面の拡大
+    "window.zoomLevel": -1,
+    // ルーラー
+    "editor.rulers": [
+        80,
+        120,
+        160,
+        200
+    ],
+    "editor.minimap.enabled":true,
+    // ミニマップ軽量化
+    "editor.minimap.renderCharacters": false,
+    // 表示位置をミニマップでハイライトする
+    "editor.minimap.showSlider": "always",
+    // ミニマップ表示位置
+    "editor.minimap.side": "left",
+    // 制御文字の表示
+    "editor.renderControlCharacters": true,
+    "editor.fontFamily": "Consolas, 'Courier New', monospace, メイリオ",
+    // エディタグループ
+    "workbench.editor.splitSizing": "split",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.value": 5,
+
+    // 【入力補助】
+    // 入力候補の設定
+    "editor.wordBasedSuggestions": false,
+    // 入力候補の表示 falseにしても ctrl + space で表示可能。
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    // ユーザスニペットを候補のトップに表示
+    "editor.snippetSuggestions": "top",
+    // スニペット有効化
+    "editor.tabCompletion": "on",
+    // 空白文字の表示
+    "editor.renderWhitespace": "all",
+    // 差分表示
+    "diffEditor.ignoreTrimWhitespace": false,
+    // フォーマッター
+    "editor.formatOnPaste": true,
+
+    // 【ファイル設定】
+    // 末尾の空行を削除
+    "files.trimFinalNewlines": true,
+    // 末尾の空白を削除
+    "files.trimTrailingWhitespace": true,
+    // 文字コード
+    "files.encoding": "utf8",
+    // 改行コード
+    // "files.eol": "\r\n"
+    "files.eol": "\n",
+    // インデント
+    // "editor.detectIndentation": false,
+    // "editor.insertSpaces": false,
+    // "editor.tabSize": 4,
+
+
+
+    // 【Emmet】
+    // https://technical-creator.com/vscode-emmet/
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.variables": {"lang" : "ja"},
+
+    // ファイルの対応付
+    "files.associations": {
+        "*.xml": "xml"
+    },
+
+
+
+    // 【言語別設定】
+    // Preferences: Configure language specific settings
+    "[apex]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "[visualforce]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+    },
+    "[apexlog]": {
+        "files.autoGuessEncoding": true,
+        "editor.wordWrap": "on"
+    },
+    "[javascript]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+    },
+    "[css]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+    },
+    // component、applicationを含む
+    "[html]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        // 行の折り返し
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 400,
+    },
+    "[json]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+    },
+    "[python]": {
+        "files.trimTrailingWhitespace": false,
+    },
+    "[go]": {
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+    },
+    "[bat]": {
+        // 行の折り返し
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 120,
+        "files.encoding": "shiftjis",
+        "files.eol": "\r\n"
+    },
+
+    // git
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+
+
+
+    // 【拡張】
+    // 【Salesforce】
+    "salesforcedx-vscode-core.retrieve-test-code-coverage":true,
+
+    // 【InsertNumbers】
+    "insertnum.formatstr" : "%d",
+    "insertnum.start" : 1,
+    "insertnum.step" : 1,
+
+    // 【printcode】
+    "printcode.fontSize": 2,
+
+    // 【TODO Highlight】
+    "todohighlight.include": [
+        "**/*.cls",
+    ],
+    // TODO: FIXME:
+    "todohighlight.keywords": [
+        {
+            "text": "懸念点:",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "return ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "insert ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "update ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "delete ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "upsert ",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.insert(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.update(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.upsert(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "Database.delete(",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "実装:",
+            "color": "#000",
+            "backgroundColor": "#ffaaaa",
+        },
+        {
+            "text": "要調査:",
+            "color": "#000",
+            "backgroundColor": "#aaaaff",
+        },
+        {
+            "text": "要確認:",
+            "color": "#000",
+            "backgroundColor": "#aaaaff",
+        },
+        {
+            "text": "憶測:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "疑問:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "課題:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "メモ:",
+            "color": "#000",
+            "backgroundColor": "#aaffaa",
+        },
+        {
+            "text": "済:",
+            "color": "#000",
+            "backgroundColor": "#888",
+        },
+        {
+            "text": "対応済:",
+            "color": "#000",
+            "backgroundColor": "#888",
+        },
+        {
+            "text": "調査済:",
+            "color": "#000",
+            "backgroundColor": "#888",
+        },
+        {
+            "text": "|USER_DEBUG|",
+            "color": "#000",
+            "backgroundColor": "#ffaaaa",
+        },
+        {
+            "text": "|EXCEPTION_THROWN|",
+            "color": "#000",
+            "backgroundColor": "red",
+        },
+        {
+            "text": "|FATAL_ERROR|",
+            "color": "#000",
+            "backgroundColor": "red",
+        },
+        // DataSpider
+        {
+            "text": "|START       |",
+            "color": "#000",
+            "isWholeLine": false,
+        },
+        {
+            "text": "|ERROR       |",
+            "color": "#000",
+            "backgroundColor": "red",
+        },
+        {
+            "text": "|CATCH       |",
+            "color": "#000",
+            "backgroundColor": "red",
+        },
+    ],
+
+
+
+
+
+
+    // ★ローカル
+    // 【Salesforceの設定】
+    // JDKの場所
+    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk-11.0.4",
+}
     // 自動保存
     "files.autoSave": "afterDelay",
     // エクスプローラ設定
