@@ -107,7 +107,7 @@
 
 // LWC
   "snipet_name": {
-    "prefix": [card],
+    "prefix": ["card"],
     "body": ["<lightning-card title=\"${1:titel}\" icon-name=\"${2:custom:custom53}\">"],
     "description": ""
   },
