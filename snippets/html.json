@@ -58,6 +58,12 @@
   },
 
 
+  "a": {
+    "prefix": ["a"],
+    "body": ["<a href=\"javascript:void(0);\" onclick={${1:action}}>$2</a>"],
+    "description": "aタグ"
+  },
+
 
   // bootstrap4
   "html init with bootstrap4": {
