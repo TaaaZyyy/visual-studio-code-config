@@ -97,6 +97,14 @@
     "description": "lightning-component resultclass"
   },
 
+    "UserInfo": {
+      "prefix": "loginuser",
+      "body": [
+        "UserInfo.getUserId()"
+      ],
+      "description": "ログインユーザIDを取得"
+    },
+
 // ========================
 //  テスト
 // ========================
@@ -348,8 +356,59 @@
     "description": "queueable test"
   },
 
+  "futre": {
+    "prefix": "future",
+    "body": [
+      "@future",
+      "private static void myFutureMethod() {",
+      "    System.debug(LoggingLevel.INFO, '${1:ClassName}#${2:methodName}');",
+      "    System.debug(LoggingLevel.DEBUG, 'parameter: ');",
+      "    ",
+      "    // Perform some operations",
+      "}"
+    ],
+    "description": "future method"
+  },
+
+// ========================
+//  インテグレーション (アウトバウンド)
+// ========================
+  "restCallout": {
+    "prefix": ["callout"],
+    "body": [
+      "public HttpResponse simpleCallout() {",
+      "    String endpoint = 'https: //';",
+      "",
+      "    HttpRequest req = new HttpRequest();",
+      "    req.setMethod('POST');",
+      "    req.setEndpoint(endpoint);",
+      "    req.setTimeout(30000); // 1ms~120,000ms",
+      "    req.setHeader('Content-Type', 'application/json;charset=UTF-8');",
+      "    // req.setHeader('Authorization', authorizationHeader);",
+      "    req.setBody('{\"key\": \"value\"}');",
+      "    System.debug(LoggingLevel.DEBUG, '----- request -----');",
+      "    System.debug(LoggingLevel.DEBUG, 'EndPoint: ' + endpoint);",
+      "",
+      "    Http h = new Http();",
+      "    HttpResponse res = h.send(req);",
+      "    System.debug(LoggingLevel.DEBUG, '----- response ----');",
+      "    System.debug(LoggingLevel.DEBUG, 'StatusCode: ' + res.getStatusCode());",
+      "    System.debug(LoggingLevel.DEBUG, 'Status: ' + res.getStatus());",
+      "    System.debug(LoggingLevel.DEBUG, 'Body: ' + res.getBody());",
+      "",
+      "    if (response.getStatusCode() == 201) { // 200:OK, 201:Created(主にPOSTやPUTのレスポンス)",
+      "        Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(res.getBody());",
+      "    }",
+      "}",
+    ],
+    "description": "REST Callout"
+  },
+
+// ========================
+//  インテグレーション (インバウンド)
+// ========================
   "restApi": {
-    "prefix": "rest",
+    "prefix": ["rest"],
     "body": [
       "// /services/apexrest/Cases/[Id]",
       "@RestResource(urlMapping='/Cases/*')",
@@ -426,20 +485,6 @@
       "}"
     ],
     "description": ""
-  },
-
-  "futre": {
-    "prefix": "future",
-    "body": [
-      "@future",
-      "private static void myFutureMethod() {",
-      "    System.debug(LoggingLevel.INFO, '${1:ClassName}#${2:methodName}');",
-      "    System.debug(LoggingLevel.DEBUG, 'parameter: ');",
-      "    ",
-      "    // Perform some operations",
-      "}"
-    ],
-    "description": "future method"
   },
 
   "restApiTest": {
@@ -549,14 +594,6 @@
     "description": ""
   },
 
-
-  "UserInfo": {
-    "prefix": ["loginuser"],
-    "body": ["UserInfo.getUserId()"],
-    "description": "ログインユーザIDを取得"
-  },
-
-
 // ========================
 // LWC
 // ========================
@@ -569,8 +606,6 @@
   ],
   "description": "LWCメソッド"
 },
-
-
 
 // ========================
 // 例外処理
