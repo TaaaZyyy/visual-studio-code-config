@@ -97,13 +97,26 @@
     "description": "lightning-component resultclass"
   },
 
-    "UserInfo": {
-      "prefix": "loginuser",
-      "body": [
-        "UserInfo.getUserId()"
-      ],
-      "description": "ログインユーザIDを取得"
-    },
+  "UserInfo": {
+    "prefix": "loginuser",
+    "body": [
+      "UserInfo.getUserId()"
+    ],
+    "description": "ログインユーザIDを取得"
+  },
+
+  "custom_setting": {
+    "prefix": ["setting", "customsetting"],
+    "body": [
+      "Map<String_dataset_name, CustomSettingName__c> mcs = CustomSettingName__c.getAll(); // リストカスタムリスト",
+      "CustomSettingName__c mc = CustomSettingName__c.getValues(data_set_name); // リストカスタムリスト",
+      "CustomSettingName__c mc = CustomSettingName__c.getOrgDefaults(); // 階層カスタムリスト",
+      "CustomSettingName__c mc = CustomSettingName__c.getInstance(Profile_ID); // 階層カスタムリスト",
+    ],
+    "description": "カスタム設定の健忘録"
+  },
+
+
 
 // ========================
 //  テスト
@@ -191,6 +204,7 @@
   "mock": {
     "prefix": ["mock"],
     "body": [
+      "// RESP コールアウト用",
       "@isTest",
       "global class WarehouseCalloutServiceMock implements HttpCalloutMock {",
       "    global HTTPResponse respond(HttpRequest req) {",
@@ -203,7 +217,28 @@
       "}",
       "// 使い方",
       "// WarehouseCalloutServiceMock fakeResponse = new WarehouseCalloutServiceMock();",
-      "// Test.setMock(HttpCalloutMock.class, fakeResponse);"
+      "// Test.setMock(HttpCalloutMock.class, fakeResponse);",
+      "",
+      "// SOAP コールアウト用",
+      "@isTest",
+      "global class WebServiceMockImpl implements WebServiceMock {",
+      "    global void doInvoke(",
+      "            Object stub,",
+      "            Object request,",
+      "            Map<String, Object> response,",
+      "            String endpoint,",
+      "            String soapAction,",
+      "            String requestName,",
+      "            String responseNS,",
+      "            String responseName,",
+      "            String responseType) {",
+      "        docSample.EchoStringResponse_element respElement = new docSample.EchoStringResponse_element();",
+      "        respElement.EchoStringResult = 'Mock response';",
+      "        response.put('response_x', respElement);",
+      "    }",
+      "}",
+      "// 使い方",
+      "// Test.setMock(WebServiceMock.class, new WebServiceMockImpl());"
     ],
     "description": "http_mock"
   },
@@ -289,9 +324,8 @@
     "prefix": ["que","queinit","queueable","queueableinit"],
     "body": [
       "public class UpdateParentAccount implements Queueable {",
-      "",
       "    private List<Account> accounts;",
-      "    private ID parent;",
+      "    private Id parent;",
       "",
       "    public UpdateParentAccount(List<Account> records, ID id) {",
       "        this.accounts = records;",
@@ -377,7 +411,8 @@
     "prefix": ["callout"],
     "body": [
       "public HttpResponse simpleCallout() {",
-      "    String endpoint = 'https: //';",
+      "    String endpoint = 'https: //'; // リモートサイトを使用する場合",
+      "    // String endpoint = 'callout:My_Named_Credential/some_path; // 指定ログイン情報を使用する場合",
       "",
       "    HttpRequest req = new HttpRequest();",
       "    req.setMethod('POST');",
@@ -396,7 +431,7 @@
       "    System.debug(LoggingLevel.DEBUG, 'Status: ' + res.getStatus());",
       "    System.debug(LoggingLevel.DEBUG, 'Body: ' + res.getBody());",
       "",
-      "    if (response.getStatusCode() == 201) { // 200:OK, 201:Created(主にPOSTやPUTのレスポンス)",
+      "    if (res.getStatusCode() == 201) { // 200:OK, 201:Created(主にPOSTやPUTのレスポンス)",
       "        Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(res.getBody());",
       "    }",
       "}",
@@ -427,7 +462,7 @@
       "",
       "",
       "    @HttpPost",
-      "    global static ID createCase(String subject, String status,",
+      "    global static Id createCase(String subject, String status,",
       "        String origin, String priority) {",
       "        Case thisCase = new Case(",
       "            Subject=subject,",
@@ -450,7 +485,7 @@
       "",
       "",
       "    @HttpPut",
-      "    global static ID upsertCase(String subject, String status,",
+      "    global static Id upsertCase(String subject, String status,",
       "        String origin, String priority, String id) {",
       "        Case thisCase = new Case(",
       "                Id=id,",
@@ -467,7 +502,7 @@
       "",
       "",
       "    @HttpPatch",
-      "    global static ID updateCaseFields() {",
+      "    global static Id updateCaseFields() {",
       "        RestRequest request = RestContext.request;",
       "        String caseId = request.requestURI.substring(",
       "            request.requestURI.lastIndexOf('/')+1);",
@@ -488,7 +523,7 @@
   },
 
   "restApiTest": {
-    "prefix": ["resttest", "restTest"],
+    "prefix": ["resttest", "testrest"],
     "body": [
       "@IsTest",
       "private class CaseManagerTest {",
@@ -511,7 +546,7 @@
       "",
       "    @isTest static void testCreateCase() {",
       "        // Call the method to test",
-      "        ID thisCaseId = CaseManager.createCase(",
+      "        Id thisCaseId = CaseManager.createCase(",
       "            'Ferocious chipmunk', 'New', 'Phone', 'Low');",
       "        // Verify results",
       "        System.assert(thisCaseId != null);",

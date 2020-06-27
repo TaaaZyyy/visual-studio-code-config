@@ -17,8 +17,15 @@
     "description": "create html template"
   },
 
+  "a": {
+    "prefix": ["a"],
+    "body": ["<a href=\"javascript:void(0);\" onclick={${1:action}}>$2</a>"],
+    "description": "aタグ"
+  },
 
-  // lightning component
+// =================
+//  Auraコンポーネント
+// =================
   "lightning attribute": {
     "prefix": "att",
     "body": [
@@ -27,15 +34,13 @@
     "description": "lightning component attribute"
   },
 
-
   "aura:registerEvent": {
     "prefix": "event",
     "body": [
-      "<aura:registerEvent name=\"$1\" type=\"${2:EventName}\"/>"
+      "<aura:registerEvent name=\"$1\" type=\"${2:c:EventName}\"/>"
     ],
     "description": "lightning component register custom event"
   },
-
 
   "aura:handlerEvent": {
     "prefix": "handler",
@@ -48,25 +53,77 @@
     "description": "lightning component handler custom event"
   },
 
-
   "aura:handlerInitEvent": {
-    "prefix": ["handinit","handlerinit"],
+    "prefix": ["handinit","handlerinit","initevent","eventinit"],
     "body": [
-      "<aura:handler name=\"init\" event=\"{!this}\" action=\"{!c.${3:doInit}}\"/>"
+      "<aura:handler name=\"init\" value=\"{!this}\" action=\"{!c.${3:doInit}}\"/>"
     ],
     "description": "lightning component handler init event"
   },
 
+  "aura:componentMethod": {
+    "prefix": ["method","componentmethod","cmpmethod"],
+    "body": [
+      "<aura:method name=\"${1:methodName}\" action=\"{!${2:actionName}}\">",
+      "    <aura:attribute name=\"${3:attributeName}\" type=\"${4:String}\" />",
+      "</aura:method>"
+    ],
+    "description": "コンポーネントメソッド"
+  },
 
-  "a": {
-    "prefix": ["a"],
-    "body": ["<a href=\"javascript:void(0);\" onclick={${1:action}}>$2</a>"],
-    "description": "aタグ"
+  "aura:recordData": {
+    "prefix": ["recorddata"],
+    "body": [
+    "<!-- Data Services -->",
+    "<force:recordData aura:id=\"service\"",
+    "    recordId=\"{!v.recordId}\" // 読み込むレコードID 作成以外は必須",
+    "    layoutType=\"{!v.layout}\" // FULLまたはCOMPACT。取得する項目をレイアウトまたはコンパクトレイアウトで指定",
+    "    fields=\"Name, Industry\" // 取得する項目をバイネームで指定。layoutTypeとfieldsは選択必須",
+    "    mode=\"VIEW\" // EDITまたはVIEW。レコードを編集する場合はEDIT。必須",
+    "    targetFields=\"{!v.simpleRecord}\" // 取得したレコードを格納するattributeを指定。SObjectにそのまま格納できる",
+    "    targetError=\"{!v.error}\" // エラーを格納するattributeを指定。",
+    "    recordUpdated=\"{!c.recordUpdated}\"",
+    "/>"
+    ],
+    "description": "Lightning Data Service"
+  },
+
+  "aura初期化": {
+    "prefix": ["aurainit"],
+    "body": [
+      "<aura:component>",
+      "    <!-- External Libraries -->",
+      "",
+      "    <!-- Global Attributes -->",
+      "    <!-- Public Attribute -->",
+      "    <!-- Private Attribute -->",
+      "",
+      "    <!-- Component Methods -->",
+      "",
+      "    <!-- Event Handlers -->",
+      "    <!-- Registered Events -->",
+      "",
+      "    <!-- Data Services -->",
+      "    <!-- Overlay Services -->",
+      "    <!-- Navigation Services -->",
+      "",
+      "    <!-- User Interface -->",
+      "</aura:component>"
+    ],
+    "description": "auraコンポーネント"
   },
 
 
-  // bootstrap4
-  "html init with bootstrap4": {
+
+
+
+
+
+
+// =================
+//  bootstrap4
+// =================
+"html init with bootstrap4": {
     "prefix": "bootstrap",
     "body": [
       "<!DOCTYPE html>",
