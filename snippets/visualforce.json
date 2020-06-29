@@ -1,4 +1,20 @@
 {
+  "extention": {
+    "prefix": ["extention", "拡張"],
+    "body": [
+      "<apex:page standardController=\"Product2\" extensions=\"Product2Extension\">"
+    ],
+    "description": "拡張コントローラを使用するページ"
+  },
+
+  "schema_field": {
+    "prefix": "field",
+    "body": [
+      "{!\\$ObjectType.${1:Account}.fields.${2:Name}.Label}"
+    ],
+    "description": "Schemaオブジェクト"
+  },
+
   "addActionFunction": {
     "prefix": ["actionfunction","actionFunction","<apex:actionFunction"],
     "body": [
@@ -30,6 +46,24 @@
     ],
     "description": "add message。成功は「CONFIRM」をえらぶ"
   },
+
+// ========================
+//  フォーム
+// ========================
+  "form_selectList": {
+    "prefix": ["selectlist","選択"],
+    "body": [
+      "<apex:selectList value=\"{!obj.PickListField}\" size=\"1\" multiselect=\"false\">",
+      "    <apex:selectOptions value=\"{!options}\"/>",
+      "</apex:selectList>"
+    ],
+    "description": "選択肢"
+  },
+
+
+// ========================
+//  テンプレート
+// ========================
   "sldx init": {
     "prefix": "sldsinit",
     "body": [

@@ -116,6 +116,13 @@
     "description": "カスタム設定の健忘録"
   },
 
+  "aggregate": {
+    "prefix": ["agg","集計"],
+    "body": [
+      "List<AggregateResult> aggList = [SELECT FROM GROUP BY];"
+    ],
+    "description": "集計関数"
+  },
 
 
 // ========================
@@ -900,6 +907,34 @@
       "}"
     ],
     "description": "after-undelete"
+  },
+
+
+// ========================
+//  コントローラ
+// ========================
+  "vf_message": {
+    "prefix": "message",
+    "body": [
+      "ApexPages.Message message = new ApexPages.message(ApexPages.Severity.ERROR, 'エラーメッセージのテストです。');",
+      "ApexPages.addMessage(message);"
+    ],
+    "description": "Visualforceメッセージ"
+  },
+
+  "vf_selectlist": {
+    "prefix": ["selectlist", "選択"],
+    "body": [
+      "transient public List<SelectOption> options { get; set; }",
+      "private void setOptions() {",
+      "    this.options = new List<SelectOption>();",
+      "    for (PicklistEntry e : Schema.Product2.Family.getDescribe().getPicklistValues()) {",
+      "    if (e.isActive()) {",
+      "        this.options.add(new SelectOption(e.getValue(), e.getLabel()));",
+      "    }",
+      "}"
+    ],
+    "description": "選択肢"
   },
 
 // ========================
