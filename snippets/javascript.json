@@ -12,22 +12,25 @@
     "description": "console.log obj->JSON"
   },
 
-
-  "sf-apexcontroller-action": {
+// =================
+//  Auraコンポーネント
+// =================
+  "aura apexアクション": {
     "prefix": ["action","apex"],
     "body": [
       "let action = component.get(\"c.${1:ApexMethodName}\");",
       "action.setParams({",
-      "  \"${1:ApexMethodParameter}\": contId,",
+      "    \"${1:ApexMethodParameter}\": contId,",
       "});",
       "",
-      "action.setCallback(this, function(response) {",
-      "  let state = response.getState();",
-      "  if (state === \"SUCCESS\") {",
+      "action.setCallback(this, response => {",
+      "    let state = response.getState();",
+      "    if (state === \"SUCCESS\") {",
+      "        console.log(response.getReturnValue());",
       "",
-      "  } else if (state === \"ERROR\") {",
-      "    console.log`error: ${JSON.stringify(response.getError())}`;",
-      "  }",
+      "    } else if (state === \"ERROR\") {",
+      "        console.log`error: ${JSON.stringify(response.getError())}`;",
+      "    }",
       "});",
       "$$A.enqueueAction(action);"
     ],
@@ -35,7 +38,7 @@
   },
 
 
-  "sf-toast_message": {
+  "aura トーストメッセージ": {
     "prefix": "msg",
     "body": [
       "dispMsg : function(message, type, data) {",
@@ -54,7 +57,7 @@
   },
 
 
-  "sf-action_error-toast_message": {
+  "aura エラートーストメッセージ": {
     "prefix": ["err","error","errmsg","errormessage"],
     "body": [
       "handleActionError : function(response) {",
@@ -77,7 +80,7 @@
   },
 
 
-  "sf-componentcontroller-function": {
+  "aura jsコントローラメソッド": {
     "prefix": "func",
     "body": [
       "function(component, event, helper) {$1},"
@@ -85,27 +88,63 @@
     "description": "sf-component controller create function"
   },
 
-
-  "query": {
-    "prefix": "query",
+  "aura navi": {
+    "prefix": "navi",
     "body": [
-      "let action = component.get(\"c.${1:method}\");",
-      "action.setParams({${2:apexParameter})",
-      "",
-      "action.setCallback(this, function(response) {",
-      "  let state = response.getState();",
-      "  if (state === \"SUCCESS\") {",
-      "    component.set(\"v.${3:attribute}\", response.getReturnValue());",
-      "  }",
-      "});",
-      "",
-      "$$A.enqueueAction(action);"
+      "console.log(event);",
+      "let recordId = event.srcElement.getAttribute(\"data-userid\");",
+      "// let recordId = event.getSource().get(\"data-userid\");",
+      "// let recordId = event.currentTarget.getAttribute(\"data-userid\");",
+      "let navEvent = $A.get(\"e.force:navigateToSObject\");",
+      "navEvent.setParams({\"recordId\": recordId});",
+      "navEvent.fire();"
     ],
-    "description": "sf-component controller query"
+    "description": "リダイレクトリンク"
   },
 
+  "aura component.get": {
+    "prefix": ["get"],
+    "body": ["component.get(\"v.変数\")"],
+    "description": "コントローラでattributeの値を使用する"
+  },
 
-// LWC
+  "aura save": {
+    "prefix": ["save"],
+    "body": [
+      "let lds = component.find(\"service\");",
+      "lds.saveRecord(saveResult => {",
+      "    console.log(saveResult.state);",
+      "    if (saveResult.state === \"SUCCESS\" || saveResult.state === \"DRAFT\") {",
+      "        let toastEvent = $A.get(\"e.force:showToast\");",
+      "        // メッセージの表示",
+      "        if (toastEvent) {",
+      "            toastEvent.setParams({",
+      "                \"title\": \"Success\",",
+      "                \"type\": \"success\",",
+      "                \"message\": \"Boat Review Created\"",
+      "            });",
+      "            toastEvent.fire();",
+      "        } else {",
+      "            window.alert(\"Boat Review Created\");",
+      "        }",
+      "        // 保存後処理",
+      "        let cmpEvent = component.getEvent(\"boatreviewadded\");",
+      "        cmpEvent.fire();",
+      "    } else if (saveResult.state === \"INCOMPLETE\") {",
+      "        console.log(\"User is offline, device doesn't support drafts.\");",
+      "    } else if (saveResult.state === \"ERROR\") {",
+      "        console.log('Problem saving record, error: ' + JSON.stringify(saveResult.error));",
+      "    } else {",
+      "        console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));",
+      "    }",
+      "});"
+    ],
+    "description": "recordDataの保存後の処理"
+  },
+
+// =================
+//  LWC
+// =================
   "snipet_name": {
     "prefix": ["card"],
     "body": ["<lightning-card title=\"${1:titel}\" icon-name=\"${2:custom:custom53}\">"],

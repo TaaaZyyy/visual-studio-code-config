@@ -23,9 +23,37 @@
     "description": "aタグ"
   },
 
+
+
 // =================
 //  Auraコンポーネント
 // =================
+  "aura初期化": {
+    "prefix": ["aurainit"],
+    "body": [
+      "controller=\"{apexコントローラ名}\"",
+      "<aura:component>",
+      "    <!-- External Libraries -->",
+      "",
+      "    <!-- Global Attributes -->",
+      "    <!-- Public Attribute -->",
+      "    <!-- Private Attribute -->",
+      "",
+      "    <!-- Component Methods -->",
+      "",
+      "    <!-- Event Handlers -->",
+      "    <!-- Registered Events -->",
+      "",
+      "    <!-- Data Services -->",
+      "    <!-- Overlay Services -->",
+      "    <!-- Navigation Services -->",
+      "",
+      "    <!-- User Interface -->",
+      "</aura:component>"
+    ],
+    "description": "auraコンポーネント"
+  },
+
   "lightning attribute": {
     "prefix": "att",
     "body": [
@@ -37,7 +65,7 @@
   "aura:registerEvent": {
     "prefix": "event",
     "body": [
-      "<aura:registerEvent name=\"$1\" type=\"${2:c:EventName}\"/>"
+      "<aura:registerEvent name=\"$1\" type=\"c:${2:EventName}\"/>"
     ],
     "description": "lightning component register custom event"
   },
@@ -54,11 +82,21 @@
   },
 
   "aura:handlerInitEvent": {
-    "prefix": ["handinit","handlerinit","initevent","eventinit"],
+    "prefix": ["handlerinit","inithandler","initevent","eventinit"],
     "body": [
-      "<aura:handler name=\"init\" value=\"{!this}\" action=\"{!c.${3:doInit}}\"/>"
+      "<aura:handler name=\"init\" value=\"{!this}\" action=\"{!c.${1:doInit}}\"/>"
     ],
-    "description": "lightning component handler init event"
+    "description": "コンポーネント初期化時のアクションの呼び出し"
+  },
+
+  "aura:handlerChangeEvent": {
+    "prefix": ["handlerchange","changehandler","changeevent","eventchange"],
+    "body": [
+      "<aura:handler name=\"change\" value=\"{!v.要素名}\" action=\"{!c.${1:onChangeObj}}\"/>",
+      "<!-- コントローラで変更前の値を参照するとき: event.getParam(\"oldValue\") -->",
+      "<!-- コントローラで変更後の値を参照するとき: event.getParam(\"value\") -->",
+    ],
+    "description": "変更ハンドラ"
   },
 
   "aura:componentMethod": {
@@ -88,37 +126,40 @@
     "description": "Lightning Data Service"
   },
 
-  "aura初期化": {
-    "prefix": ["aurainit"],
+  "aura:if": {
+    "prefix": ["if"],
     "body": [
-      "<aura:component>",
-      "    <!-- External Libraries -->",
-      "",
-      "    <!-- Global Attributes -->",
-      "    <!-- Public Attribute -->",
-      "    <!-- Private Attribute -->",
-      "",
-      "    <!-- Component Methods -->",
-      "",
-      "    <!-- Event Handlers -->",
-      "    <!-- Registered Events -->",
-      "",
-      "    <!-- Data Services -->",
-      "    <!-- Overlay Services -->",
-      "    <!-- Navigation Services -->",
-      "",
-      "    <!-- User Interface -->",
-      "</aura:component>"
+      "<aura:if isTrue=\"{!v.変数}\">",
+      "    <aura:set attribute=\"else\">",
+      "    </aura:set>",
+      "</aura:if>"
     ],
-    "description": "auraコンポーネント"
+    "description": "IFステートメント"
   },
 
+  "aura:iteration": {
+    "prefix": ["for"],
+    "body": [
+      "<aura:iteration items=\"{!v.リスト}\" var=\"繰り返し変数\">",
+      "</aura:iteration>"
+    ],
+    "description": "繰り返し処理"
+  },
 
+  "aura a": {
+    "prefix": ["link"],
+    "body": ["<a onclick=\"{!c.handleClick}\">text</a>"],
+    "description": "aタグでアクションを呼び出す"
+  },
 
-
-
-
-
+  "aura staticresource": {
+    "prefix": "static",
+    "body": [
+      "<ltng:require styles=\"{!$Resource.fivestar + '/rating.css'}\"/>",
+      "<ltng:require scripts=\"{!$Resource.fivestar + '/rating.js'}\" afterScriptsLoaded=\"{!c.afterScriptsLoaded}\"/>"
+    ],
+    "description": "静的リソース"
+  },
 
 // =================
 //  bootstrap4
