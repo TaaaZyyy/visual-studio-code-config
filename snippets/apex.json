@@ -124,6 +124,26 @@
     "description": "集計関数"
   },
 
+  "snipet_name": {
+    "prefix": "enum",
+    "body": [
+      "private enum Segment { BODYMAKE, GOLF, ENGLISH, COOK, KIDS, WOMAN, QUOLIVE }",
+      "private String getSegmentCode(Segment segmentName) {",
+      "    switch on segmentName {",
+      "        when BODYMAKE { return '1';  }",
+      "        when GOLF     { return '2';  }",
+      "        when ENGLISH  { return '3';  }",
+      "        when KIDS     { return '4';  }",
+      "        when COOK     { return '5';  }",
+      "        when WOMAN    { return '6';  }",
+      "        when QUOLIVE  { return '7';  }",
+      "        when else     { return null; }",
+      "    }",
+      "}",
+    ],
+    "description": "enumサンプル"
+  },
+
 
 // ========================
 //  テスト
@@ -302,6 +322,9 @@
       "* バッチ",
       "*/",
       "global with sharing class ${1:BatchName} implements Database.Batchable<SObject>, Schedulable, Database.Stateful {",
+      "// ★注意:Database.Statefulは各プロセスのexecuteで更新したメンバ変数の値が引き継がれるが、",
+      "// Database.Statefulを使用した場合、各バッチプロセスが直列で実施されるため、実行時間が長くなる",
+      "// 必要なときのみ設定すること",
       "",
       "    global static final Integer BATCH_SIZE = 200;",
       "    private Date targetDate;",
@@ -316,7 +339,7 @@
       "",
       "    /** コンストラクタ */",
       "    global BatchName() {",
-      "        this.targetDate = Date.today();",
+      "        this.(Date.today());",
       "    }",
       "",
       "",
