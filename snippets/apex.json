@@ -315,8 +315,16 @@
 // ========================
 //  バッチ・スケジュール・キューラブル
 // ========================
+  "executeschedule": {
+    "prefix": ["schedule","sc","sch","すけじゅーる","スケジュール","くーろん","クーロン"],
+    "body": [
+      "System.schedule('ジョブ名', '秒 分 時 日 月 曜日', new スケジューラー名());"
+    ],
+    "description": "set schedule"
+  },
+
   "batch": {
-    "prefix": ["batchinit","batch","scheduleinit","schdule","sch"],
+    "prefix": ["batchinit","batch","ばっち","バッチ"],
     "body": [
       "/**",
       "* バッチ",
