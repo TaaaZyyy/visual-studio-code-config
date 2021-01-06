@@ -49,12 +49,12 @@
     "description": "add getparameter"
   },
 
-  "parameter": {
-    "prefix": "para",
+  "property": {
+    "prefix": "prop",
     "body": [
       "${1:public} ${2:String} ${3} {get; set;}"
     ],
-    "description": "add apex parameter"
+    "description": "add apex property"
   },
 
   "label": {
@@ -497,7 +497,7 @@
       "    HttpRequest req = new HttpRequest();",
       "    req.setMethod('POST');",
       "    req.setEndpoint(endpoint);",
-      "    req.setTimeout(30000); // 1ms~120,000ms",
+      "    req.setTimeout(30000); // 1ms~120,000ms default:10,000ms",
       "    req.setHeader('Content-Type', 'application/json;charset=UTF-8');",
       "    // req.setHeader('Authorization', authorizationHeader);",
       "    req.setBody('{\"key\": \"value\"}');",
@@ -762,7 +762,7 @@
   "exception": {
     "prefix": "exception",
     "body": [
-      "public class MyException extends Exception {}"
+      "public class ${My}Exception extends Exception {}"
     ],
     "description": "exception"
   },
@@ -781,7 +781,7 @@
     ],
     "body": [
       "/**",
-      "* ${1:SObjectLabelNameトリガ}",
+      "* ${1:SObjectLabelName}トリガ",
       "*/",
       "trigger ${2:TriggerName} on ${3:SObjectName} (",
       "        before insert,",

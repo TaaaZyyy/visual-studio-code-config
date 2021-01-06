@@ -15,6 +15,7 @@
     //         "color": "#ff0000"
     //     }
     // ]
+    "diffEditor.maxComputationTime": 0,
 
 
 
@@ -31,9 +32,18 @@
     "editor.copyWithSyntaxHighlighting": false,
     // パンくずリスト
     "breadcrumbs.enabled": true,
+    // エクスプローラ非表示設定
+    "files.exclude": {
+        "**/.git": false
+    },
+    // 閉じるボタンの位置
+    "workbench.editor.tabCloseButton": "left",
+    "explorer.openEditors.visible": 50,
+
 
     // 【見た目の変更】
     // テーマ
+    // "workbench.colorTheme": "Default High Contrast",
     "workbench.colorTheme": "Codey Midnight",
     // "workbench.colorTheme": "Default Light+",
     // "workbench.colorTheme": "Solarized Light",
@@ -61,7 +71,9 @@
     "workbench.editor.splitSizing": "split",
     "workbench.editor.limit.enabled": true,
     "workbench.editor.limit.perEditorGroup": true,
-    "workbench.editor.limit.value": 5,
+    "workbench.editor.limit.value": 15,
+    // 選択したラインの強調表示
+    "editor.renderLineHighlight": "all",
 
     // 【入力補助】
     // 入力候補の設定
@@ -81,7 +93,7 @@
     // 差分表示
     "diffEditor.ignoreTrimWhitespace": false,
     // フォーマッター
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
 
     // 【ファイル設定】
     // 末尾の空行を削除
@@ -178,9 +190,11 @@
     "salesforcedx-vscode-core.retrieve-test-code-coverage": true,
     "salesforcedx-vscode-lightning.showLightningExplorer": true,
     "salesforcedx-vscode-core.show-cli-success-msg": false,
+    "salesforcedx-vscode-core.detectConflictsAtSync": true,
 
     // 【gitlens】
     "gitlens.gitCommands.closeOnFocusOut": true,
+    "gitlens.views.repositories.branches.layout": "list",
 
     // 【InsertNumbers】
     "insertnum.formatstr" : "%d",
@@ -316,6 +330,11 @@
             "backgroundColor": "blue",
         },
         {
+            "text": "|CODE_UNIT_FINISHED|",
+            "color": "#fff",
+            "backgroundColor": "green",
+        },
+        {
             "text": "|METHOD_ENTRY|",
             "color": "#000",
             "backgroundColor": "#ffaaaa",
@@ -340,11 +359,6 @@
     ],
 
 
-    // ★ローカル
-    // 【Salesforceの設定】
-    // JDKの場所
-    "salesforcedx-vscode-apex.java.home": "C:/Program Files/Java/jdk-11.0.4",
-}
 
 
 
